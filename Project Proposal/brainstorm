@@ -1,0 +1,39 @@
+
+Music recommendation program based on a user's favourite album/genre and what people who listen to the same album/genre
+
+Using dataset of top 5000 most popular albums on RateYourMusic (sonemic),
+
+A computational plan for your project. (400–600 words)
+
+Describe what kind of data your project will use to represent your chosen domain.
+Clearly explain how you will use trees and/or graphs to model a central part of the data. While your project can
+certainly use other data types (e.g., sets, lists), trees and/or graphs must play a prominent role in your program.
+
+If your project requires real-world data, provide a source for at least one relevant dataset you have found, and provide
+some sample data contained inside that dataset.
+
+Describe the kinds of computations you plan to perform, such as: building trees/graphs from a dataset or computation,
+data transformation/filtering/aggregation, computational models, and/or algorithms.
+
+Your proposed computations can be based on what you’ve done in lectures/tutorials/assignments, but should not simply
+replicate work you’ve already done.
+
+Explain how your program will display or report the results of your computations in a visual and/or interactive way.
+You don’t need to go into a lot of detail here, but it should be clear what you plan to do.
+
+
+
+Our project will use a tree to represent the albums in our dataset in a hierarchical manner. Starting from the root,
+the tree will branch into broad genres (pop, rock, hip-hop, etc.) with each genre then branching into more specific
+subgenres (ex. the genre 'Rock' may branch into subgenres like 'Noise Rock', 'Pop Rock' or 'Psychedelic Rock').
+Subgenres may also have their own subgenres (ex. 'Hip-Hop' may branch into 'Trap' which branches into 'Drill' which
+branches into 'UK Drill'). This tree will be visually displayed on a graphical interface and users will be able to
+interact and explore the tree on their own by clicking deeper into the tree. To prevent the tree from becoming too large
+in the visualization, we will only display a tree of maximum depth 2 on the interface each time, whenever a user clicks
+on a genre (a subtree), it will update the interface to display a new tree with that genre being the new root of the
+tree.
+
+We will display a sorted list of the top 10 recommendations on the side of the graphical interface.
+
+We are using a dataset we found on the website Kaggle of the top 5000 most popular albums based on the number of
+user ratings on the music database website RateYourMusic (Sonemic).
