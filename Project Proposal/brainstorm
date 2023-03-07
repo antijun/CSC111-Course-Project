@@ -29,11 +29,16 @@ subgenres (ex. the genre 'Rock' may branch into subgenres like 'Noise Rock', 'Po
 Subgenres may also have their own subgenres (ex. 'Hip-Hop' may branch into 'Trap' which branches into 'Drill' which
 branches into 'UK Drill'). This tree will be visually displayed on a graphical interface and users will be able to
 interact and explore the tree on their own by clicking deeper into the tree. To prevent the tree from becoming too large
-in the visualization, we will only display a tree of maximum depth 2 on the interface each time, whenever a user clicks
-on a genre (a subtree), it will update the interface to display a new tree with that genre being the new root of the
+in the visualization, we will only display a tree with a maximum depth of  on the interface each time, whenever a user
+clicks on a genre, it will update the interface to display a new tree with that genre being the new root of the
 tree.
 
 We will display a sorted list of the top 10 recommendations on the side of the graphical interface.
 
 We are using a dataset we found on the website Kaggle of the top 5000 most popular albums based on the number of
 user ratings on the music database website RateYourMusic (Sonemic).
+
+
+
+https://pastebin.com/RyvFZf1V
+https://pastebin.com/eJ38Pin8
