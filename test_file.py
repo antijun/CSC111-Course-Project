@@ -1,4 +1,5 @@
 import csv
+# import pandas as pd
 
 
 class Album:
@@ -22,7 +23,7 @@ class Album:
 
 
 albums = []
-with open('datasets/rym_clean1.csv') as f:
+with open('datasets/rym_clean1.csv', 'r', encoding="utf8") as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
