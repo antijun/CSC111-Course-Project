@@ -57,7 +57,7 @@ Country Gospel,Traditional Country
 Bluegrass Gospel,Traditional Country
 Country Yodeling,Traditional Country
 Trampská hudba,Country
-Western,NA
+Western,Country
 Western Swing,Western
 Classical Music,NA
 Arabic Classical Music,Classical Music
@@ -65,7 +65,7 @@ Andalusian Classical Music,Classical Music
 Iraqi Maqam,Classical Music
 Sawt,Classical Music
 Azerbaijani Mugham,Classical Music
-East Asian Classical Music,NA
+East Asian Classical Music,Classical Music
 Chinese Classical Music,East Asian Classical Music
 Baisha xiyue,Chinese Classical Music
 Chinese Opera,Chinese Classical Music
@@ -76,7 +76,7 @@ Revolutionary Opera,Chinese Opera
 Shaoxing Opera,Chinese Opera
 Dongjing,Chinese Classical Music
 Yayue,Chinese Classical Music
-Japanese Classical Music,NA
+Japanese Classical Music,East Asian Classical Music
 Gagaku,Japanese Classical Music
 Heikyoku,Japanese Classical Music
 Honkyoku,Japanese Classical Music
@@ -89,13 +89,13 @@ Shomyo,Japanese Classical Music
 Sokyoku,Japanese Classical Music
 Danmono,Sokyoku
 Kumiuta,Sokyoku
-Korean Classical Music,NA
+Korean Classical Music,East Asian Classical Music
 Aak,Korean Classical Music
 Dang-ak,Korean Classical Music
 Hyang-ak,Korean Classical Music
 Jeong-ak,Korean Classical Music
 Gagok,Korean Classical Music
-Vietnamese Classical Music,NA
+Vietnamese Classical Music,East Asian Classical Music
 Ca tru,Vietnamese Classical Music
 Vietnamese Opera,Vietnamese Classical Music
 Inkiranya,Classical Music
