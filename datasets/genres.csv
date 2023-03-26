@@ -1,0 +1,566 @@
+Genre,Parent Genre
+Ambient,
+Ambient Americana,Ambient
+Ambient Noise Wall,Ambient
+Dark Ambient,Ambient
+Black Ambient,Dark Ambient
+Ritual Ambient,Dark Ambient
+Space Ambient,Ambient
+Tribal Ambient,Ambient
+Blues,
+Acoustic Blues,Blues
+Acoustic Chicago Blues,Acoustic Blues
+Acoustic Texas Blues,Acoustic Blues
+Jug Band,Blues
+Piedmont Blues,Blues
+Boogie Woogie,Blues
+Country Blues,Blues
+Delta Blues,Blues
+Hill Country Blues,Blues
+Electric Blues,Blues
+British Blues,Electric Blues
+Chicago Blues,Electric Blues
+Electric Texas Blues,Electric Blues
+Swamp Blues,Electric Blues
+Fife and Drum Blues,Blues
+Jump Blues,Electric Blues
+New Orleans Blues,Electric Blues
+Piano Blues,Electric Blues
+Soul Blues,Electric Blues
+Vaudeville Blues,Blues
+Country,
+Alt-Country,Country
+Gothic Country,Country
+Bluegrass,Country
+Bluegrass Gospel,Bluegrass
+Progressive Bluegrass,Bluegrass
+Jamgrass,Bluegrass
+Contemporary Country,Country
+Neo-Traditionalist Country,Contemporary Country
+Country & Irish,Country
+Country Pop,Country
+Bro-Country,Country
+Countrypolitan,Country
+Urban Cowboy,Country
+Honky Tonk,Country
+Bakersfield Sound,Country
+Truck Driving Country,Country
+Nashville Sound,Country
+Countrypolitan,Country
+Progressive Country,Country
+Outlaw Country,Country
+Red Dirt,Country
+Traditional Country,Country
+Close Harmony,Traditional Country
+Country Boogie,Traditional Country
+Country Gospel,Traditional Country
+Bluegrass Gospel,Traditional Country
+Country Yodeling,Traditional Country
+Trampská hudba,Country
+Western,
+Western Swing,Western
+Classical Music,
+Arabic Classical Music,Classical Music
+Andalusian Classical Music,Classical Music
+Iraqi Maqam,Classical Music
+Sawt,Classical Music
+Azerbaijani Mugham,Classical Music
+East Asian Classical Music,
+Chinese Classical Music,East Asian Classical Music
+Baisha xiyue,Chinese Classical Music
+Chinese Opera,Chinese Classical Music
+Cantonese Opera,Chinese Opera
+Peking Opera,Chinese Opera
+Korean Revolutionary Opera,Chinese Opera
+Revolutionary Opera,Chinese Opera
+Shaoxing Opera,Chinese Opera
+Dongjing,Chinese Classical Music
+Yayue,Chinese Classical Music
+Japanese Classical Music,
+Gagaku,Japanese Classical Music
+Heikyoku,Japanese Classical Music
+Honkyoku,Japanese Classical Music
+Jiuta,Japanese Classical Music
+Joruri,Japanese Classical Music
+Meiji shinkyoku,Japanese Classical Music
+Nagauta,Japanese Classical Music
+Noh,Japanese Classical Music
+Shomyo,Japanese Classical Music
+Sokyoku,Japanese Classical Music
+Danmono,Sokyoku
+Kumiuta,Sokyoku
+Korean Classical Music,
+Aak,Korean Classical Music
+Dang-ak,Korean Classical Music
+Hyang-ak,Korean Classical Music
+Jeong-ak,Korean Classical Music
+Gagok,Korean Classical Music
+Vietnamese Classical Music,
+Ca tru,Vietnamese Classical Music
+Vietnamese Opera,Vietnamese Classical Music
+Inkiranya,Classical Music
+Minyue,Classical Music
+Persian,Classical Music
+Pìobaireachd,Classical Music
+Shashmaqam,Classical Music
+South Asian Classical Music,Classical Music
+Burmese Classical Music,South Asian Classical Music
+Gamelan,South Asian Classical Music
+Balinese Gamelan,Gamelan
+Gamelan angklung,Gamelan
+Gamelan beleganjur,Gamelan
+Gamelan gender wayang,Gamelan
+Gamelan gong gede,Gamelan
+Gamelan gong kebyar,Gamelan
+Gamelan jegog,Gamelan
+Gamelan selonding,Gamelan
+Gamelan semar pegulingan,Gamelan
+Gamelan degung,Gamelan
+Javanese Gamelan,Gamelan
+Gamelan sekaten,Javanese Gamelan
+Malay Gamelan,Gamelan
+Kacapi suling,South Asian Classical Music
+Kulintang,South Asian Classical Music
+Mahori,South Asian Classical Music
+Malay Classical Music,South Asian Classical Music
+Malay Gamelan,Malay Classical Music
+Pinpeat,South Asian Classical Music
+Saluang Klasik,South Asian Classical Music
+Talempong,South Asian Classical Music
+Tembang Sunda Cianjuran,South Asian Classical Music
+Thai Classical Music,South Asian Classical Music
+Fon leb,Thai Classical Music
+Khrueang sai,Thai Classical Music
+Piphat,Thai Classical Music
+Turkish Classical Music,Classical Music
+Turkish Mevlevi Music,Turkish Classical Music
+Western Classical Music,Classical Music
+Art Song,Western Classical Music
+Elizabethan Song,Art Song
+Lied,Art Song
+Mélodie,Art Song
+Orchestral Song,Art Song
+Ballet,Western Classical Music
+Opéra-ballet,Ballet
+Baroque Music,Western Classical Music
+Opéra-ballet,Baroque Music
+Tragédie en musique,Baroque Music
+Baroque Suite,Western Classical Music
+Brazilian Classical Music,Western Classical Music
+Valsa brasileira,Brazilian Classical Music
+Byzantine Music,Western Classical Music
+Byzantine Chant,Byzantine Music
+Cantata,Western Classical Music
+Chamber Music,Western Classical Music
+Choral,Western Classical Music
+Choral Symphony,Choral
+Mass,Choral
+Requiem,Mass
+Cinematic Classical,Western Classical Music
+Epic Music,Cinematic Classical
+Spaghetti Western,Cinematic Classical
+Spy Music,Cinematic Classical
+Classical March,Western Classical Music
+Circus March,Classical March
+Dobrado,Classical March
+Classical Period,Western Classical Music
+Divertissement,Western Classical Music
+Étude,Western Classical Music
+Fantasia,Western Classical Music
+Latin American Classical Music,Western Classical Music
+Madrigal,Western Classical Music
+Medieval Classical Music,Western Classical Music
+Ars antiqua,Medieval Classical Music
+Ars nova,Medieval Classical Music
+Ars subtilior,Medieval Classical Music
+Medieval Lyric Poetry,Medieval Classical Music
+Plainsong,Western Classical Music
+Ambrosian Chant,Plainsong
+Canto mozárabe,Plainsong
+Gregorian Chant,Plainsong
+Modern Classical,Western Classical Music
+Expressionism,Modern Classical
+Futurism,Modern Classical
+Impressionism,Modern Classical
+Indeterminacy,Modern Classical
+Microtonal Classical,Modern Classical
+Minimalism,Modern Classical
+Holy Minimalism,Minimalism
+Musique concrète instrumentale,Modern Classical
+New Complexity,Modern Classical
+Post-Minimalism,Modern Classical
+Totalism,Post-Minimalism
+Serialism,Modern Classical
+Integral Serialism,Serialism
+Sonorism,Modern Classical
+Spectralism,Modern Classical
+Stochastic Music,Modern Classical
+Motet,Western Classical Music
+Neoclassicism,Western Classical Music
+Nocturne,Western Classical Music
+Opera,Western Classical Music
+Ballad Opera,Opera
+Opéra-ballet,Opera
+Tragédie en musique,Opera
+Grand opéra,Opera
+Monodrama,Opera
+Opera buffa,Opera
+Opéra-comique,Opera
+Opera semiseria,Opera
+Opera seria,Opera
+Operetta,Opera
+Kalon'ny fahiny,Operetta
+Romantische Oper,Opera
+Singspiel,Opera
+Verismo,Opera
+Zarzuela,Opera
+Zeitoper,Opera
+Oratorio,Western Classical Music
+Orchestral,Western Classical Music
+Concerto,Orchestral
+Concerto grosso,Orchestral
+Orchestral Song,Orchestral
+Symphony,Orchestral
+Choral Symphony,Symphony
+Tone Poem,Orchestral
+Overture,Western Classical Music
+Prelude,Western Classical Music
+Renaissance Music,Western Classical Music
+Elizabethan Song,Renaissance Music
+Romanticism,Western Classical Music
+Grand opéra,Romanticism
+Romantische Oper,Romanticism
+Serenade,Western Classical Music
+Sonata,Western Classical Music
+Spanish Classical Music,Western Classical Music
+Canto mozárabe,Spanish Classical Music
+Zarzuela,Spanish Classical Music
+Toccata,Western Classical Music
+Comedy,
+Break-In,Comedy
+Dutch Cabaret,Comedy
+Kabarett,Comedy
+Musical Comedy,Comedy
+Comedy Rap,Musical Comedy
+Comedy Rock,Musical Comedy
+Scrumpy and Western,Musical Comedy
+Prank Calls,Comedy
+Sketch Comedy,Comedy
+Stand-Up Comedy,Comedy
+Pop,
+Adult Contemporary,Pop
+Afrobeats,Pop
+Afropiano,Afrobeats
+Alt-Pop,Pop
+Ambient Pop,Pop
+Arabic Pop,Pop
+Al Jeel,Arabic Pop
+Art Pop,Pop
+Balkan Pop-Folk,Pop
+Chalga,Balkan Pop-Folk
+Manele,Balkan Pop-Folk
+Modern Laika,Balkan Pop-Folk
+Musika popullore,Balkan Pop-Folk
+Muzică de mahala,Balkan Pop-Folk
+Skiladika,Balkan Pop-Folk
+Tallava,Balkan Pop-Folk
+Turbo-Folk,Balkan Pop-Folk
+Baroque Pop,Pop
+Bitpop,Pop
+Blue-Eyed Soul,Pop
+Boy Band,Pop
+Brega calypso,Pop
+Brill Building Pop,Pop
+Bubblegum,Pop
+Cambodian Pop,Pop
+Rom kbach,Cambodian Pop
+Canción melódica,Pop
+Bolero-Beat,Canción melódica
+Música cebolla,Canción melódica
+CCM,Pop
+Praise & Worship,CCM
+City Pop,Pop
+Classical Crossover,Pop
+Country Pop,Pop
+Bro-Country,Country Pop
+Countrypolitan,Country Pop
+Urban Cowboy,Country Pop
+C-Pop,Pop
+Cantopop,C-Pop
+Mandopop,C-Pop
+Zhongguo feng,C-Pop
+Dance-Pop,Pop
+Bubblegum Dance,Dance-Pop
+Disco polo,Dance-Pop
+Freestyle,Dance-Pop
+Latin Freestyle,Freestyle
+Funk melody,Dance-Pop
+Romanian Popcorn,Dance-Pop
+Tecnorumba,Dance-Pop
+Township Bubblegum,Dance-Pop
+Dangdut,Pop
+Dangdut koplo,Dangdut
+Dansbandsmusik,Pop
+Dansktop,Pop
+Denpa,Pop
+Easy Listening,Pop
+Cocktail Nation,Easy Listening
+Exotica,Easy Listening
+Light Music,Easy Listening
+Lounge,Easy Listening
+Pops Orchestra,Easy Listening
+Space Age Pop,Easy Listening
+Electropop,Pop
+Europop,Pop
+Flamenco Pop,Pop
+Folk Pop,Pop
+French Pop,Pop
+Girl Group,Pop
+Glitch Pop,Pop
+Hyperpop,Pop
+Indian Pop,Pop
+Indie Pop,Pop
+Bedroom Pop,Indie Pop
+C86,Indie Pop
+Chamber Pop,Indie Pop
+Neo-Acoustic,Indie Pop
+Sonido Donosti,Indie Pop
+Twee Pop,Indie Pop
+Irish Showband,Pop
+Italo Pop,Pop
+Canzone neomelodica,Italo Pop
+Jazz Pop,Pop
+J-Pop,Pop
+Akishibu-kei,J-Pop
+Kayōkyoku,Pop
+Idol kayō,Kayōkyoku
+Mood kayō,Kayōkyoku
+Techno kayō,Kayōkyoku
+Korean Ballad,Pop
+Oriental Ballad,Korean Ballad
+K-Pop,Pop
+Semi-Trot,K-Pop
+Latin Pop,Pop
+Cumbia pop,Latin Pop
+Tropipop,Latin Pop
+Lokal musik,Pop
+Mulatós,Pop
+Nederpop,Pop
+New Music,Pop
+New Romantic,Pop
+OPM,Pop
+Orthodox Pop,Pop
+Palingsound,Pop
+Persian Pop,Pop
+Pop Batak,Pop
+Pop Ghazal,Pop
+Pop Raï,Pop
+Pop Reggae,Pop
+Pop Rock,Pop
+Beat Music,Pop Rock
+Freakbeat,Beat Music
+Group Sounds,Beat Music
+Jovem Guarda,Beat Music
+Merseybeat,Beat Music
+Nederbeat,Beat Music
+Big Music,Pop Rock
+Britpop,Pop Rock
+Jangle Pop,Pop Rock
+C86,Jangle Pop
+Neo-Acoustic,Jangle Pop
+Manila Sound,Pop Rock
+Piano Rock,Pop Rock
+Post-Britpop,Pop Rock
+Power Pop,Pop Rock
+Soft Rock,Pop Rock
+Tropical Rock,Soft Rock
+Yacht Rock,Soft Rock
+Sonido Donosti,Pop Rock
+Stereo,Pop Rock
+Twee Pop,Pop Rock
+Vocal Surf,Pop Rock
+Pop Soul,Pop
+Motown Sound,Pop Soul
+Pop Sunda,Pop
+Progressive Pop,Pop
+Psychedelic Pop,Pop
+Rabiz,Pop
+Rigsar,Pop
+Rumba catalana,Pop
+Russian Chanson,Pop
+Schlager,Pop
+Humppa,Schlager
+Levenslied,Schlager
+Volkstümliche Musik,Schlager
+Sertanejo romântico,Pop
+Sertanejo universitário,Pop
+Arrocha sertanejo,Sertanejo universitário
+Funknejo,Sertanejo universitário
+Shibuya-kei,Pop
+Akishibu-kei,Shibuya-kei
+Picopop,Shibuya-kei
+Sophisti-Pop,Pop
+Soviet Estrada,Pop
+Sunshine Pop,Pop
+Synthpop,Pop
+Futurepop,Synthpop
+Pon-chak disco,Synthpop
+Techno kayō,Synthpop
+Teen Pop,Pop
+Traditional Pop,Pop
+British Dance Band,Traditional Pop
+Mood kayō,Traditional Pop
+Romanţe,Traditional Pop
+Standards,Traditional Pop
+Tin Pan Alley,Traditional Pop
+Turkish Pop,Pop
+V-Pop,Pop
+Yé-yé,Pop
+Psychedelia,
+Neo-Psychedelia,Psychedelia
+Hypnagogic Pop,Neo-Psychedelia
+Paisley Underground,Neo-Psychedelia
+Space Rock Revival,Neo-Psychedelia
+Psychedelic Folk,Psychedelia
+Freak Folk,Psychedelic Folk
+Free Folk,Psychedelic Folk
+Psychedelic Pop,Psychedelia
+Psychedelic Rock,Psychedelia
+Acid Rock,Psychedelic Rock
+Heavy Psych,Psychedelic Rock
+Raga Rock,Psychedelic Rock
+Space Rock,Psychedelic Rock
+Space Rock Revival,Space Rock
+Zamrock,Psychedelic Rock
+Psychedelic Soul,Psychedelia
+Stoner Rock,Psychedelia
+Tropicália,Psychedelia
+Rock,
+Acoustic Rock,Rock
+Afro-Rock,Rock
+Alternative Rock,Rock
+Alternative Dance,Alternative Rock
+Grebo,Alternative Dance
+New Rave,Alternative Dance
+Baggy,Alternative Rock
+Britpop,Alternative Rock
+Dream Pop,Alternative Rock
+Emo-Pop,Alternative Rock
+Geek Rock,Alternative Rock
+Grunge,Alternative Rock
+Indie Rock,Alternative Rock
+C86,Indie Rock
+Dunedin Sound,Indie Rock
+Garage Rock Revival,Indie Rock
+Hamburger Schule,Indie Rock
+Indie Surf,Indie Rock
+Math Pop,Indie Rock
+Midwest Emo,Indie Rock
+New Rave,Indie Rock
+Noise Pop,Indie Rock
+Post-Punk Revival,Indie Rock
+Slacker Rock,Indie Rock
+Slowcore,Indie Rock
+Twee Pop,Indie Rock
+Jangle Pop,Indie Rock
+C86,Jangle Pop
+Neo-Acoustic,Jangle Pop
+J-Rock,Alternative Rock
+Yakousei,J-Rock
+Paisley Underground,Alternative Rock
+Post-Britpop,Alternative Rock
+Post-Grunge,Alternative Rock
+Shoegaze,Alternative Rock
+Anatolian Rock,Rock
+AOR,Rock
+Art Punk,Rock
+Art Rock,Rock
+Bard Rock,Rock
+Blues Rock,Rock
+Boogie Rock,Blues Rock
+British Rhythm & Blues,Rock
+Candombe beat,Rock
+Christian Rock,Rock
+Comedy Rock,Rock
+Country Rock,Rock
+Cowpunk,Rock
+Dark Cabaret,Rock
+Deutschrock,Rock
+Emo,Rock
+Emocore,Emo
+Emo-Pop,Emo
+Midwest Emo,Emo
+Screamo,Emo
+Emoviolence,Screamo
+Experimental Rock,Rock
+Avant-Prog,Experimental Rock
+Rock in Opposition,Avant-Prog
+Zeuhl,Avant-Prog
+Brutal Prog,Experimental Rock
+Krautrock,Experimental Rock
+No Wave,Experimental Rock
+Folk Rock,Rock
+Alpenrock,Folk Rock
+British Folk Rock,Folk Rock
+Celtic Rock,Folk Rock
+Mittelalter-Rock,Folk Rock
+Nordic Folk Rock,Folk Rock
+Phleng phuea chiwit,Folk Rock
+Pinoy Folk Rock,Folk Rock
+Funk Rock,Rock
+Funk Metal,Funk Rock
+Garage Rock,Rock
+Freakbeat,Garage Rock
+Garage Punk,Garage Rock
+Garage Rock Revival,Garage Rock
+Glam Rock,Rock
+Glam Punk,Glam Rock
+Hardcore [Punk],Glam Punk
+Easycore,Hardcore [Punk]
+Grindcore,Hardcore [Punk]
+Grindcore,Hardcore [Punk]
+Cybergrind,Grindcore
+Deathgrind,Grindcore
+Goregrind,Grindcore
+Gorenoise,Goregrind
+Pornogrind,Goregrind
+Mincecore,Grindcore
+Hardcore Punk,Hardcore [Punk]
+Beatdown Hardcore,Hardcore Punk
+Burning Spirits,Hardcore Punk
+Crossover Thrash,Hardcore Punk
+Crust Punk,Hardcore Punk
+Blackened Crust,Crust Punk
+Neocrust,Crust Punk
+Stenchcore,Crust Punk
+D-Beat,Hardcore Punk
+Japanese Hardcore,Hardcore Punk
+Melodic Hardcore,Hardcore Punk
+Mincecore,Hardcore Punk
+New York Hardcore,Hardcore Punk
+Powerviolence,Hardcore Punk
+Skacore,Hardcore Punk
+Crack Rock Steady,Skacore
+Street Punk,Hardcore Punk
+Thrashcore,Hardcore Punk
+UK82,Hardcore Punk
+Metalcore,Hardcore [Punk]
+Deathcore,Metalcore
+Mathcore,Metalcore
+Melodic Metalcore,Metalcore
+Nintendocore,Metalcore
+Noisecore,Metalcore
+Post-Hardcore,Metalcore
+Emocore,Post-Hardcore
+Screamo,Post-Hardcore
+Swancore,Post-Hardcore
+Sasscore,Post-Hardcore
+Trancecore,Post-Hardcore
+Hard Rock,Rock
+Glam Metal,Hard Rock
+Heavy Psych,Hard Rock
+Stoner Rock,Hard Rock
+Heartland Rock,Rock
+Industrial Rock,Rock
+Jam Band,Rock
+Jamgrass,Jam Band
