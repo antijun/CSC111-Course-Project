@@ -29,7 +29,10 @@ with open('datasets/rym_clean1.csv', 'r', encoding="utf8") as f:
     for row in reader:
         name = row[2]
         artist = row[3]
-        genres = row[6].split(', ') + row[7].split(', ')
+        if row[7] != 'NA':
+            genres = row[6].split(', ') + row[7].split(', ')
+        else:
+            genres = row[6].split(', ')
         rank = int(row[1])
         release = row[4]
         descriptors = row[7].split(', ')
