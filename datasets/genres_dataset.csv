@@ -1,5 +1,5 @@
 Genre,Parent Genre
-Ambient,
+Ambient,NA
 Ambient Americana,Ambient
 Ambient Noise Wall,Ambient
 Dark Ambient,Ambient
@@ -7,7 +7,7 @@ Black Ambient,Dark Ambient
 Ritual Ambient,Dark Ambient
 Space Ambient,Ambient
 Tribal Ambient,Ambient
-Blues,
+Blues,NA
 Acoustic Blues,Blues
 Acoustic Chicago Blues,Acoustic Blues
 Acoustic Texas Blues,Acoustic Blues
@@ -28,7 +28,7 @@ New Orleans Blues,Electric Blues
 Piano Blues,Electric Blues
 Soul Blues,Electric Blues
 Vaudeville Blues,Blues
-Country,
+Country,NA
 Alt-Country,Country
 Gothic Country,Country
 Bluegrass,Country
@@ -57,15 +57,15 @@ Country Gospel,Traditional Country
 Bluegrass Gospel,Traditional Country
 Country Yodeling,Traditional Country
 Trampská hudba,Country
-Western,
+Western,NA
 Western Swing,Western
-Classical Music,
+Classical Music,NA
 Arabic Classical Music,Classical Music
 Andalusian Classical Music,Classical Music
 Iraqi Maqam,Classical Music
 Sawt,Classical Music
 Azerbaijani Mugham,Classical Music
-East Asian Classical Music,
+East Asian Classical Music,NA
 Chinese Classical Music,East Asian Classical Music
 Baisha xiyue,Chinese Classical Music
 Chinese Opera,Chinese Classical Music
@@ -76,7 +76,7 @@ Revolutionary Opera,Chinese Opera
 Shaoxing Opera,Chinese Opera
 Dongjing,Chinese Classical Music
 Yayue,Chinese Classical Music
-Japanese Classical Music,
+Japanese Classical Music,NA
 Gagaku,Japanese Classical Music
 Heikyoku,Japanese Classical Music
 Honkyoku,Japanese Classical Music
@@ -89,13 +89,13 @@ Shomyo,Japanese Classical Music
 Sokyoku,Japanese Classical Music
 Danmono,Sokyoku
 Kumiuta,Sokyoku
-Korean Classical Music,
+Korean Classical Music,NA
 Aak,Korean Classical Music
 Dang-ak,Korean Classical Music
 Hyang-ak,Korean Classical Music
 Jeong-ak,Korean Classical Music
 Gagok,Korean Classical Music
-Vietnamese Classical Music,
+Vietnamese Classical Music,NA
 Ca tru,Vietnamese Classical Music
 Vietnamese Opera,Vietnamese Classical Music
 Inkiranya,Classical Music
@@ -236,7 +236,7 @@ Spanish Classical Music,Western Classical Music
 Canto mozárabe,Spanish Classical Music
 Zarzuela,Spanish Classical Music
 Toccata,Western Classical Music
-Comedy,
+Comedy,NA
 Break-In,Comedy
 Dutch Cabaret,Comedy
 Kabarett,Comedy
@@ -247,7 +247,7 @@ Scrumpy and Western,Musical Comedy
 Prank Calls,Comedy
 Sketch Comedy,Comedy
 Stand-Up Comedy,Comedy
-Pop,
+Pop,NA
 Adult Contemporary,Pop
 Afrobeats,Pop
 Afropiano,Afrobeats
@@ -416,7 +416,7 @@ Tin Pan Alley,Traditional Pop
 Turkish Pop,Pop
 V-Pop,Pop
 Yé-yé,Pop
-Psychedelia,
+Psychedelia,NA
 Neo-Psychedelia,Psychedelia
 Hypnagogic Pop,Neo-Psychedelia
 Paisley Underground,Neo-Psychedelia
@@ -435,7 +435,7 @@ Zamrock,Psychedelic Rock
 Psychedelic Soul,Psychedelia
 Stoner Rock,Psychedelia
 Tropicália,Psychedelia
-Rock,
+Rock,NA
 Acoustic Rock,Rock
 Afro-Rock,Rock
 Alternative Rock,Rock
@@ -708,14 +708,14 @@ Symphonic Rock,Rock
 Tolai Rock,Rock
 Visual kei,Rock
 Zolo,Rock
-Field Recordings,
+Field Recordings,NA
 Nature Recordings,Field Recordings
 Animal Sounds,Nature Recordings
 Birdsong,Nature Recordings
 Insect Sounds,Nature Recordings
 Whale Songs,Nature Recordings
 Radio Broadcast Recordings,Field Recordings
-Experimental,
+Experimental,NA
 Conducted Improvisation,Experimental
 Data Sonification,Experimental
 Drone,Experimental
@@ -752,16 +752,16 @@ Epic Collage,Sound Collage
 Sound Poetry,Noise
 Tape Music,Noise
 Turntable Music,Noise
-Ska,
+Ska,NA
 2 Tone,Ska
 Jamaican Ska,Ska
 Spouge,Ska
 Third Wave Ska,Ska
 Ska Punk,Third Wave Ska
-Sounds and Effects,
+Sounds and Effects,NA
 ASMR,Sounds and Effects
 Binaural Beats,Sounds and Effects
-Spoken Word,
+Spoken Word,NA
 Fairy Tales,Spoken Word
 Folktales,Spoken Word
 Guided Meditation,Spoken Word
@@ -775,7 +775,7 @@ Slam Poetry,Poetry
 Sound Poetry,Poetry
 Radio Drama,Spoken Word
 Speeches,Spoken Word
-Singer-Songwriter,
+Singer-Songwriter,NA
 Avtorskaya pesnya,Singer-Songwriter
 Bard Rock,Avtorskaya pesnya
 Canzone d'autore,Singer-Songwriter
@@ -793,7 +793,7 @@ Nueva canción chilena,Nueva canción latinoamericana
 Nueva trova,Nueva canción latinoamericana
 Nuevo Cancionero,Nueva canción latinoamericana
 Poezja śpiewana,Singer-Songwriter
-Punk,
+Punk,NA
 Art Punk,Punk
 Cowpunk,Punk
 Digital Hardcore,Punk
@@ -802,14 +802,14 @@ Folk Punk,Punk
 Celtic Punk,Folk Punk
 Gypsy Punk,Folk Punk
 Synth Punk,Punk
-New Age,
+New Age,NA
 Andean New Age,New Age
 Celtic New Age,New Age
 Native American New Age,New Age
 Neoclassical New Age,New Age
 New Age Kirtan,New Age
 Tibetan New Age,New Age
-Musical Theatre and Entertainment,
+Musical Theatre and Entertainment,NA
 Ballad Opera,Musical Theatre and Entertainment
 Cabaret,Musical Theatre and Entertainment
 Cuplé,Musical Theatre and Entertainment
@@ -828,7 +828,7 @@ Siffleur,Musical Theatre and Entertainment
 Singspiel,Musical Theatre and Entertainment
 Vaudeville,Musical Theatre and Entertainment
 Vaudeville Blues,Vaudeville
-R&B,
+R&B,NA
 Blue-Eyed Soul,R&B
 Boogie,R&B
 Contemporary R&B,R&B
@@ -866,7 +866,7 @@ Pop Soul,Soul
 Psychedelic Soul,Soul
 Smooth Soul,Soul
 Southern Soul,Soul
-Industrial Music
+Industrial Music,NA
 Industrial,Industrial Music
 Power Electronics,Industrial
 Death Industrial,Power Electronics
@@ -891,7 +891,7 @@ Industrial Techno,Post-Industrial
 Birmingham Sound,Industrial Techno
 Martial Industrial,Post-Industrial
 Power Noise,Post-Industrial
-Jazz,
+Jazz,NA
 Afro-Jazz,Jazz
 Arabic Jazz,Jazz
 Avant-Garde Jazz,Jazz
@@ -938,8 +938,8 @@ Swing,Jazz
 Swing Revival,Swing
 Third Stream,Jazz
 Vocal Jazz,Jazz
-Metal,
-Dance,
+Metal,NA
+Dance,NA
 Alternative Dance,Dance
 Dance-Pop,Dance
 Disco,Dance
@@ -1221,7 +1221,7 @@ Wonky,Electronic Dance Music
 Miami Bass,Dance
 Atlanta Bass,Miami Bass
 Techno Bass,Miami Bass
-Electronic,
+Electronic,NA
 Algorave,Electronic
 Ambient Dub,Electronic
 Ambient Trance,Electronic
@@ -1305,7 +1305,7 @@ Slushwave,Vaporwave
 Wave,Electronic
 Hardwave,Electronic
 Witch House,Electronic
-Hip Hop,
+Hip Hop,NA
 Abstract Hip Hop,Hip Hop
 Afroswing,Hip Hop
 Afro Trap,Hip Hop
@@ -1386,7 +1386,7 @@ Tread Music,Trap
 Turntablism,Hip Hop
 UK Hip Hop,Hip Hop
 West Coast Hip Hop,Hip Hop
-Folk,
+Folk,NA
 Contemporary Folk,Folk
 American Primitivism,Contemporary Folk
 Anti-Folk,Contemporary Folk
