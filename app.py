@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 from albums_data import albums
 from genres_data import Genre
 
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+external_stylesheets = ['datasets/stylesheet.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True)
 
@@ -30,8 +30,10 @@ def blank_fig():
 
 
 app.layout = html.Div([
-    html.H1(children='Music Recommendation System', style={'textAlign': 'center'}),
-    html.Div(children='''This is a web application that recommends music based on the user's preferences.'''),
+    html.H1(children='Music Recommendation System',
+            style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
+    html.Div(children='''This is a web application that recommends music based on the user's preferences.''',
+             style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
     html.Button('Get Recommendation', id='rec_button', style={'textAlign': 'center'}),
     html.Button('Explore Genre Tree', id='genre_tree_button', style={'textAlign': 'center'}),
     html.Div(id='rec_output'),
@@ -58,7 +60,7 @@ def update_page(rec_button, genre_tree_button):
         visited = set()
         return html.Div([
             html.H3('Please select an album that you enjoy listening to from the dropdown below:',
-                    style={'textAlign': 'center'}),
+                    style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
             dcc.Dropdown(
                 id='album_dropdown',
                 options=[album.name + ' - ' + album.artist for album in albums],
@@ -72,17 +74,19 @@ def update_page(rec_button, genre_tree_button):
         global root_genre_stack
         root_genre_stack = []
         return html.Div([
-            html.H2('Genre Tree Free Exploration', style={'textAlign': 'center'}),
+            html.H2('Genre Tree Free Exploration',
+                    style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
             html.H3('This is an interactive visualization of music genres displayed in a hierachical tree structure.',
-                    style={'textAlign': 'center'}),
+                    style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
             html.H3("You can freely explore the tree and view a genre's subgenres by clicking on it's node",
-                    style={'textAlign': 'center'}),
+                    style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
             html.Button('Go Back', id='back_button', style={'textAlign': 'center'}),
         ]), plot_default_genre_tree()
 
     else:
         return html.Div([
-            html.H3('Please press a button to get started', style={'textAlign': 'center'}),
+            html.H3('Please press a button to get started',
+                    style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
         ]), blank_fig()
 
 
