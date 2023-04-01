@@ -4,6 +4,7 @@ from dash import Dash, html, dcc, callback, Output, Input, ctx, State
 import plotly.express as px
 import pandas as pd
 from plot_genre_tree import plot_genre_tree, plot_default_genre_tree
+from plot_recommendation_tree import *
 from igraph import Graph, EdgeSeq
 import plotly.graph_objects as go
 from albums_data import albums
@@ -14,6 +15,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True)
 
 root_genre_stack = []
+visited = set()
 
 
 def blank_fig():
@@ -34,7 +36,6 @@ app.layout = html.Div([
     html.Button('Explore Genre Tree', id='genre_tree_button', style={'textAlign': 'center'}),
     html.Div(id='rec_output'),
     dcc.Graph(id='tree_plot', figure=blank_fig()),
-    html.Div(id='genre_output'),
 ])
 
 
@@ -53,6 +54,8 @@ def update_page(rec_button, genre_tree_button):
     If the genre tree button is pressed, the page will be changed to display the genre tree from plot_genre_tree.
     """
     if "rec_button" == ctx.triggered_id:
+        global visited
+        visited = set()
         return html.Div([
             html.H3('Please select an album that you enjoy listening to from the dropdown below:',
                     style={'textAlign': 'center'}),
@@ -60,7 +63,9 @@ def update_page(rec_button, genre_tree_button):
                 id='album_dropdown',
                 options=[album.name + ' - ' + album.artist for album in albums],
             ),
-            html.Div(id='album_output')
+            html.Div(id='album_output'),
+            html.Button('Recommend Me!', id='album_submit', style={'textAlign': 'center'}),
+            dcc.Graph(id='rec_tree_plot', figure=blank_fig()),
         ]), blank_fig()
 
     elif "genre_tree_button" == ctx.triggered_id:
@@ -115,6 +120,26 @@ def plot_previous_tree(back_button):
         return plot_genre_tree(root_genre_stack.pop())
     else:
         return plot_default_genre_tree()
+
+
+@app.callback(
+    Output('rec_tree_plot', 'figure', allow_duplicate=True),
+    Input('album_dropdown', 'value'),
+    Input('album_submit', 'n_clicks'),
+    prevent_initial_call=True,
+)
+def get_album_dropdown_value(value, album_submit):
+    """
+    This function returns the value of the album dropdown when the recommend button is pressed and plots the
+    recommendation tree.
+    """
+    if "album_submit" == ctx.triggered_id:
+        album_name = value.split(' - ')[0]
+        album_artist = value.split(' - ')[1]
+        album = [album for album in albums if album.name == album_name and album.artist == album_artist][0]
+        return plot_album_recommendation_tree(album, visited)
+    else:
+        return blank_fig()
 
 
 if __name__ == '__main__':
