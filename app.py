@@ -133,6 +133,8 @@ def get_album_dropdown_value(value, album_submit):
     This function returns the value of the album dropdown when the recommend button is pressed and plots the
     recommendation tree.
     """
+    global visited
+    visited = set()
     if "album_submit" == ctx.triggered_id:
         album_name = value.split(' - ')[0]
         album_artist = value.split(' - ')[1]
