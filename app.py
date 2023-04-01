@@ -142,5 +142,23 @@ def get_album_dropdown_value(value, album_submit):
         return blank_fig()
 
 
+@app.callback(
+    Output('rec_tree_plot', 'figure', allow_duplicate=True),
+    Input('rec_tree_plot', 'clickData'),
+    prevent_initial_call=True
+)
+def plot_new_recommendation_tree(clickData):
+    """
+    This function plots a new recommendation tree based on the node clicked on the old recommendation tree.
+    """
+    global visited
+    if clickData is not None:
+        album_name = clickData['points'][0]['text'].split(' - ')[0]
+        album_artist = clickData['points'][0]['text'].split(' - ')[1]
+        album = [album for album in albums if album.name == album_name and album.artist == album_artist][0]
+        visited.add(album_name)
+        return plot_album_recommendation_tree(album, visited)
+
+
 if __name__ == '__main__':
     app.run_server(debug=True)
