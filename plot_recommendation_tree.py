@@ -63,13 +63,14 @@ def plot_genre_recommendation_tree(selected_genre: Genre):
                              name='bla',
                              marker=dict(symbol='circle-dot',
                                          size=30,
-                                         color='#6175c1',
+                                         color='hotpink',
                                          line=dict(color='rgb(50,50,50)', width=1)
                                          ),
                              hoverinfo='text',
                              opacity=0.8
                              ))
-
+    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    fig.for_each_trace(lambda t: t.update(textfont_color='white', opacity=1))
     fig.update_traces(textposition=improve_text_position(Xn))
     fig.update_layout(showlegend=False)
     fig.update_xaxes(visible=False)
@@ -157,13 +158,14 @@ def plot_album_recommendation_tree(selected_album: Album, visited: set[str]):
                              name='bla',
                              marker=dict(symbol='circle-dot',
                                          size=30,
-                                         color='#6175c1',
+                                         color='hotpink',
                                          line=dict(color='rgb(50,50,50)', width=1)
                                          ),
                              hoverinfo='text',
                              opacity=0.8
                              ))
-
+    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
+    fig.for_each_trace(lambda t: t.update(textfont_color='white', opacity=1))
     fig.update_traces(textposition=improve_text_position(Xn))
     fig.update_layout(showlegend=False)
     fig.update_xaxes(visible=False)

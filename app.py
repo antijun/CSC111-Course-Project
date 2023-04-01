@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 from albums_data import albums
 from genres_data import Genre
 
-external_stylesheets = ['datasets/stylesheet.css']
+external_stylesheets = ['assets/stylesheet.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True)
 
@@ -23,6 +23,7 @@ def blank_fig():
     This function creates a blank figure.
     """
     fig = go.Figure(go.Scatter(x=[], y=[]))
+    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', plot_bgcolor='rgba(0,0,0,0)')
     fig.update_layout(template=None)
     fig.update_xaxes(showgrid=False, showticklabels=False, zeroline=False)
     fig.update_yaxes(showgrid=False, showticklabels=False, zeroline=False)
@@ -64,6 +65,7 @@ def update_page(rec_button, genre_tree_button):
             dcc.Dropdown(
                 id='album_dropdown',
                 options=[album.name + ' - ' + album.artist for album in albums],
+                style={'backgroundColor': 'white', 'color': 'black'}
             ),
             html.Div(id='album_output'),
             html.Button('Recommend Me!', id='album_submit', style={'textAlign': 'center'}),
