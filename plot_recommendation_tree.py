@@ -224,8 +224,9 @@ def get_all_branches(album_tree: AlbumTree) -> list[tuple[str, str]]:
     else:
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
-            edges.append((album_tree.root.name + ', ' + album_tree.root.artist, subtree.root.name
-                          + ', ' + album_tree.root.artist))
+            root_album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
+            subtree_album_and_artist = subtree.root.name + ', ' + album_tree.root.artist
+            edges.append((root_album_and_artist, subtree_album_and_artist))
             edges.extend(get_all_branches(subtree))
 
         return edges
@@ -238,9 +239,11 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
     if album_tree.is_empty():
         return []
     elif album_tree.get_subtrees() == []:
-        return [album_tree.root.name + ', ' + album_tree.root.artist]
+        album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
+        return [album_and_artist]
     else:
-        vertices.append(album_tree.root.name + ', ' + album_tree.root.artist)
+        album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
+        vertices.append(album_and_artist)
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
             vertices.extend(get_all_vertices(subtree))
