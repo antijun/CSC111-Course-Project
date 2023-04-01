@@ -62,13 +62,18 @@ def plot_genre_recommendation_tree(selected_genre: Genre):
                              mode='markers+text',
                              name='bla',
                              marker=dict(symbol='circle-dot',
-                                         size=18,
-                                         color='#6175c1',  # '#DB4551',
+                                         size=30,
+                                         color='#6175c1',
                                          line=dict(color='rgb(50,50,50)', width=1)
                                          ),
                              hoverinfo='text',
                              opacity=0.8
                              ))
+
+    fig.update_traces(textposition=improve_text_position(Xn))
+    fig.update_layout(showlegend=False)
+    fig.update_xaxes(visible=False)
+    fig.update_yaxes(visible=False)
 
     return fig
 
@@ -151,13 +156,18 @@ def plot_album_recommendation_tree(selected_album: Album, visited: set[str]):
                              mode='markers+text',
                              name='bla',
                              marker=dict(symbol='circle-dot',
-                                         size=18,
-                                         color='#6175c1',  # '#DB4551',
+                                         size=30,
+                                         color='#6175c1',
                                          line=dict(color='rgb(50,50,50)', width=1)
                                          ),
                              hoverinfo='text',
                              opacity=0.8
                              ))
+
+    fig.update_traces(textposition=improve_text_position(Xn))
+    fig.update_layout(showlegend=False)
+    fig.update_xaxes(visible=False)
+    fig.update_yaxes(visible=False)
 
     return fig
 
@@ -224,8 +234,8 @@ def get_all_branches(album_tree: AlbumTree) -> list[tuple[str, str]]:
     else:
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
-            root_album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
-            subtree_album_and_artist = subtree.root.name + ', ' + subtree.root.artist
+            root_album_and_artist = album_tree.root.name + ' - ' + album_tree.root.artist
+            subtree_album_and_artist = subtree.root.name + ' - ' + subtree.root.artist
             edges.append((root_album_and_artist, subtree_album_and_artist))
             edges.extend(get_all_branches(subtree))
 
@@ -239,13 +249,21 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
     if album_tree.is_empty():
         return []
     elif album_tree.get_subtrees() == []:
-        album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
+        album_and_artist = album_tree.root.name + ' - ' + album_tree.root.artist
         return [album_and_artist]
     else:
-        album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
+        album_and_artist = album_tree.root.name + ' - ' + album_tree.root.artist
         vertices.append(album_and_artist)
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
             vertices.extend(get_all_vertices(subtree))
 
         return vertices
+
+
+def improve_text_position(Xn):
+    """
+    Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
+    """
+    positions = ['top center', 'bottom center']
+    return ['middle center' if Xn[i] == 0 else positions[i % 2] for i in range(len(Xn))]
