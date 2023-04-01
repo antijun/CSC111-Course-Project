@@ -98,7 +98,7 @@ def plot_album_recommendation_tree(selected_album: Album, visited: set[str]):
     G = Graph(directed=True)
 
     # Add the root node
-    G.add_vertex(selected_album.name)
+    # G.add_vertex(selected_album.name)
 
     # Add the children of the root node
     album_tree = generate_album_recommendation_tree(selected_album, albums, 3, 2, visited)
@@ -224,7 +224,8 @@ def get_all_branches(album_tree: AlbumTree) -> list[tuple[str, str]]:
     else:
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
-            edges.append((album_tree.root.name, subtree.root.name))
+            edges.append((album_tree.root.name + ', ' + album_tree.root.artist, subtree.root.name
+                          + ', ' + album_tree.root.artist))
             edges.extend(get_all_branches(subtree))
 
         return edges
@@ -239,7 +240,7 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
     elif album_tree.get_subtrees() == []:
         return [album_tree.root.name]
     else:
-        vertices.append(album_tree.root.name)
+        vertices.append(album_tree.root.name + ', ' + album_tree.root.artist)
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
             vertices.extend(get_all_vertices(subtree))
