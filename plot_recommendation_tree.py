@@ -225,7 +225,7 @@ def get_all_branches(album_tree: AlbumTree) -> list[tuple[str, str]]:
         subtrees = album_tree.get_subtrees()
         for subtree in subtrees:
             root_album_and_artist = album_tree.root.name + ', ' + album_tree.root.artist
-            subtree_album_and_artist = subtree.root.name + ', ' + album_tree.root.artist
+            subtree_album_and_artist = subtree.root.name + ', ' + subtree.root.artist
             edges.append((root_album_and_artist, subtree_album_and_artist))
             edges.extend(get_all_branches(subtree))
 
