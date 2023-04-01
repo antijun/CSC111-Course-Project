@@ -26,6 +26,14 @@ class Tree:
         """Returns the root of this tree."""
         return self._root
 
+    def add_subtree(self, subtree) -> None:
+        """Add a subtree to this game tree."""
+        self._subtrees.append(subtree)
+
+    def get_subtrees(self) -> list[Any]:
+        """Add a subtree to this game tree."""
+        return self._subtrees
+
 
 class GenreTree(Tree):
     """A tree that represents genres in a hierarchical structure, each subtree is a subgenre of the root genre."""
