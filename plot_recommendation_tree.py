@@ -238,7 +238,7 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
     if album_tree.is_empty():
         return []
     elif album_tree.get_subtrees() == []:
-        return [album_tree.root.name]
+        return [album_tree.root.name + ', ' + album_tree.root.artist]
     else:
         vertices.append(album_tree.root.name + ', ' + album_tree.root.artist)
         subtrees = album_tree.get_subtrees()
