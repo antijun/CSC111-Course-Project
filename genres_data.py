@@ -13,6 +13,16 @@ class Genre:
         self.name = name
         self.parent_genre = parent_genre
 
+    def get_subgenres(self):
+        """
+        This function returns the subgenres of a genre.
+        """
+        subgenres = []
+        for genre in genres:
+            if genre.parent_genre == self.name:
+                subgenres.append(genre)
+        return subgenres
+
 
 genres = []
 with open('datasets/genres_dataset.csv', 'r', encoding="utf8") as f:
