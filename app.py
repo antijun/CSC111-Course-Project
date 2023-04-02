@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 from dash import Dash, html, dcc, Output, Input, ctx
 import spotipy
-import spotipy.util as util
 from spotipy import SpotifyOAuth
 from plot_genre_tree import plot_genre_tree, plot_default_genre_tree
 from plot_recommendation_tree import *
@@ -21,7 +20,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID,
                                                ))
 
 
-external_stylesheets = ['assets/stylesheet.css']
+external_stylesheets = ['https://raw.githubusercontent.com/antijun/CSC111-Course-Project/main/assets/stylesheet.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True)
 
@@ -212,4 +211,4 @@ def plot_new_recommendation_tree(clickData):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
