@@ -1,12 +1,13 @@
 import plotly.graph_objects as go
 from igraph import Graph, EdgeSeq
-from genres_data import Genre, genres
+from genres_data import create_genres
 
 
 def plot_default_genre_tree():
     """
     This function plots the genre tree with the root being 'Genres', each subgenre is has a parent genre of None.
     """
+    genres = create_genres()
     G = Graph(directed=True)
     G.add_vertex('Genres')
     for genre in genres:
@@ -65,6 +66,7 @@ def plot_genre_tree(root_genre):
     """
     This function plots the genre tree of the given root genre.
     """
+    genres = create_genres()
     G = Graph(directed=True)
     G.add_vertex(root_genre.name)
     for genre in genres:

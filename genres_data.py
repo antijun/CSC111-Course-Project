@@ -13,26 +13,20 @@ class Genre:
         self.name = name
         self.parent_genre = parent_genre
 
-    def get_subgenres(self):
-        """
-        This function returns the subgenres of a genre.
-        """
-        subgenres = []
-        for genre in genres:
-            if genre.parent_genre == self.name:
-                subgenres.append(genre)
-        return subgenres
 
-
-genres = []
-with open('datasets/genres_dataset.csv', 'r', encoding="utf8") as f:
-    reader = csv.reader(f)
-    next(reader)
-    for row in reader:
-        name = row[0]
-        if row[1] == 'NA':
-            parent_genre = None
-        else:
-            parent_genre = row[1]
-        genre = Genre(name, parent_genre)
-        genres.append(genre)
+def create_genres():
+    """
+    This function creates the full list of genres.
+    """
+    genres = []
+    with open('datasets/genres_dataset.csv', 'r', encoding="utf8") as f:
+        reader = csv.reader(f)
+        next(reader)
+        for row in reader:
+            name = row[0]
+            if row[1] == 'NA':
+                parent_genre = None
+            else:
+                parent_genre = row[1]
+            genre = Genre(name, parent_genre)
+            genres.append(genre)

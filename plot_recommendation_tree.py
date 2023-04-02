@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
-from igraph import Graph, EdgeSeq
-from genres_data import genres, Genre
-from albums_data import albums, Album
+from igraph import EdgeSeq, Graph
+from albums_data import Album, create_albums
+from genres_data import Genre
 from tree_classes import AlbumTree
 
 
@@ -9,6 +9,7 @@ def plot_genre_recommendation_tree(selected_genre: Genre):
     """
     This function plots the genre tree of the given root genre.
     """
+    albums = create_albums()
     # Create a graph object
     G = Graph(directed=True)
 
@@ -86,7 +87,6 @@ def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> 
     """Given a list of albums sorted from most popular to leat popular and a genre, return a list containing albums with
     the specified genre(Note that albums from albums data are already sorted by popularity)
     """
-
     filtered_ablums_list = []
 
     for album in albums_list:
@@ -250,7 +250,7 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
     vertices = []
     if album_tree.is_empty():
         return []
-    elif album_tree.get_subtrees() == []:
+    elif not album_tree.get_subtrees():
         album_and_artist = album_tree.root.name + ' - ' + album_tree.root.artist
         return [album_and_artist]
     else:

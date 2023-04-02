@@ -1,5 +1,4 @@
 import csv
-# import pandas as pd
 
 
 class Album:
@@ -22,19 +21,23 @@ class Album:
         self.descriptors = descriptors
 
 
-albums = []
-with open('datasets/rym_clean1.csv', 'r', encoding="utf8") as f:
-    reader = csv.reader(f)
-    next(reader)
-    for row in reader:
-        name = row[2]
-        artist = row[3]
-        if row[7] != 'NA':
-            genres = row[6].split(', ') + row[7].split(', ')
-        else:
-            genres = row[6].split(', ')
-        rank = int(row[1])
-        release = row[4]
-        descriptors = row[7].split(', ')
-        album = Album(name, artist, genres, rank, release, descriptors)
-        albums.append(album)
+def create_albums():
+    """
+    This function creates the full list of albums.
+    """
+    albums = []
+    with open('datasets/rym_clean1.csv', 'r', encoding="utf8") as f:
+        reader = csv.reader(f)
+        next(reader)
+        for row in reader:
+            name = row[2]
+            artist = row[3]
+            if row[7] != 'NA':
+                genres = row[6].split(', ') + row[7].split(', ')
+            else:
+                genres = row[6].split(', ')
+            rank = int(row[1])
+            release = row[4]
+            descriptors = row[7].split(', ')
+            album = Album(name, artist, genres, rank, release, descriptors)
+            albums.append(album)
