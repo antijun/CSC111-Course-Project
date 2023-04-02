@@ -1,14 +1,25 @@
-import json
-
-from dash import Dash, html, dcc, callback, Output, Input, ctx, State
-import plotly.express as px
-import pandas as pd
+import os
+from dotenv import load_dotenv
+from dash import Dash, html, dcc, Output, Input, ctx
+import spotipy
+import spotipy.util as util
+from spotipy import SpotifyOAuth
 from plot_genre_tree import plot_genre_tree, plot_default_genre_tree
 from plot_recommendation_tree import *
-from igraph import Graph, EdgeSeq
 import plotly.graph_objects as go
 from albums_data import albums
 from genres_data import Genre
+
+load_dotenv()
+SPOTIPY_CLIENT_ID = load_dotenv('SPOTIPY_CLIENT_ID')
+SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET')
+SPOTIPY_REDIRECT_URI = os.getenv('SPOTIPY_REDIRECT_URI')
+
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID,
+                                               client_secret=SPOTIPY_CLIENT_SECRET,
+                                               redirect_uri=SPOTIPY_REDIRECT_URI,
+                                               ))
+
 
 external_stylesheets = ['assets/stylesheet.css']
 
@@ -39,6 +50,8 @@ app.layout = html.Div([
     html.Button('Explore Genre Tree', id='genre_tree_button', style={'textAlign': 'center'}),
     html.Div(id='rec_output'),
     dcc.Graph(id='tree_plot', figure=blank_fig()),
+
+
 ])
 
 
@@ -69,6 +82,7 @@ def update_page(rec_button, genre_tree_button):
             ),
             html.Div(id='album_output'),
             html.Button('Recommend Me!', id='album_submit', style={'textAlign': 'center'}),
+            html.Div(id='spotify_output', style={'textAlign': 'center'}),
             dcc.Graph(id='rec_tree_plot', figure=blank_fig()),
         ]), blank_fig()
 
@@ -130,6 +144,7 @@ def plot_previous_tree(back_button):
 
 @app.callback(
     Output('rec_tree_plot', 'figure', allow_duplicate=True),
+    Output('spotify_output', 'children', allow_duplicate=True),
     Input('album_dropdown', 'value'),
     Input('album_submit', 'n_clicks'),
     prevent_initial_call=True,
@@ -138,6 +153,8 @@ def get_album_dropdown_value(value, album_submit):
     """
     This function returns the value of the album dropdown when the recommend button is pressed and plots the
     recommendation tree.
+
+    Also adds an empty Iframe
     """
     global visited
     visited = set()
@@ -145,9 +162,35 @@ def get_album_dropdown_value(value, album_submit):
         album_name = value.split(' - ')[0]
         album_artist = value.split(' - ')[1]
         album = [album for album in albums if album.name == album_name and album.artist == album_artist][0]
-        return plot_album_recommendation_tree(album, visited)
+        return plot_album_recommendation_tree(album, visited), html.Iframe(src='', id='spotify_embed', style={'display': 'none'})
     else:
         return blank_fig()
+
+
+@app.callback(
+    Output('spotify_output', 'children', allow_duplicate=True),
+    Input('rec_tree_plot', 'clickData'),
+    prevent_initial_call=True
+)
+def SpotifyEmbed(clickData):
+    """
+    Embeds the Spotify player of the album at the root
+    """
+    album_name = clickData['points'][0]['text'].split(' - ')[0]
+    album_artist = clickData['points'][0]['text'].split(' - ')[1]
+    results = sp.search(q='album:' + album_name + ' artist:' + album_artist, type='album')
+
+    if not results['albums']['items']:
+        results = sp.search(q='album:' + album_name, type='album')
+    if not results['albums']['items']:
+        results = sp.search(q='album:' + album_name.split(' (')[0] + ' artist:' + album_artist, type='album')
+    if not results['albums']['items']:
+        results = sp.search(q='album:' + album_name.split('(')[1].split(')')[0] + ' artist:' + album_artist, type='album')
+    if not results['albums']['items']:
+        return html.Div('No Spotify results found', style={'textAlign': 'center', 'color': 'hotpink'})
+
+    album_id = results['albums']['items'][0]['id']
+    return html.Iframe(src='https://open.spotify.com/embed/album/' + album_id, width='700', height='380',)
 
 
 @app.callback(
