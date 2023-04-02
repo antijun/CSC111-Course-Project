@@ -14,6 +14,10 @@ class Tree:
         """Returns whether this tree is empty."""
         return self._root is None
 
+    def root(self):
+        """Returns the root of this tree."""
+        return self._root
+
     def add_subtree(self, subtree) -> None:
         """Adds a subtree to this tree."""
         self._subtrees.append(subtree)
