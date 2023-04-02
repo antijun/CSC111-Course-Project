@@ -12,7 +12,7 @@ class Album:
     release: str
     descriptors: list[str]
 
-    def __init__(self, name, artist, genres, rank, release, descriptors):
+    def __init__(self, name, artist, genres, rank, release, descriptors) -> None:
         self.name = name
         self.artist = artist
         self.genres = genres
@@ -21,7 +21,7 @@ class Album:
         self.descriptors = descriptors
 
 
-def create_albums():
+def create_albums() -> list[Album]:
     """
     This function creates the full list of albums.
     """
@@ -41,3 +41,4 @@ def create_albums():
             descriptors = row[7].split(', ')
             album = Album(name, artist, genres, rank, release, descriptors)
             albums.append(album)
+    return albums

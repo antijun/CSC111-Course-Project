@@ -33,7 +33,7 @@ def main() -> None:
     visited = set()
     albums = create_albums()
 
-    def blank_fig():
+    def blank_fig() -> go.Figure:
         """
         This function creates a blank figure.
         """
@@ -64,7 +64,7 @@ def main() -> None:
         prevent_initial_call='initial_duplicate',
         suppress_callback_exceptions=True
     )
-    def update_page(self, rec_button, genre_tree_button):
+    def update_page(self, rec_button, genre_tree_button) -> tuple:
         """
         This function updates the page based on the button pressed.
         If the recommendation button is pressed, the page will be changed to display a combobox with every album.
@@ -110,7 +110,7 @@ def main() -> None:
         Input('tree_plot', 'clickData'),
         prevent_initial_call=True
     )
-    def plot_new_tree(clickData):
+    def plot_new_tree(clickData) -> go.Figure:
         """
         This function plots a new genre tree based on the node clicked on the old genre tree.
         """
@@ -129,7 +129,7 @@ def main() -> None:
         Input('back_button', 'n_clicks'),
         prevent_initial_call=True,
     )
-    def plot_previous_tree(back_button):
+    def plot_previous_tree(back_button) -> go.Figure:
         """
         This function plots the previous genre tree, does nothing if it is currently the default tree.
         """
@@ -145,7 +145,7 @@ def main() -> None:
         Input('album_submit', 'n_clicks'),
         prevent_initial_call=True,
     )
-    def get_album_dropdown_value(self, value, album_submit):
+    def get_album_dropdown_value(self, value, album_submit) -> tuple | go.Figure:
         """
         This function returns the value of the album dropdown when the recommend button is pressed and plots the
         recommendation tree.
@@ -167,9 +167,9 @@ def main() -> None:
         Input('rec_tree_plot', 'clickData'),
         prevent_initial_call=True
     )
-    def SpotifyEmbed(clickData):
+    def SpotifyEmbed(clickData) -> html.Div:
         """
-        Embeds the Spotify player of the album at the root
+        Embeds a spotify player of the album clicked on the recommendation tree.
         """
         album_name = clickData['points'][0]['text'].split(' - ')[0]
         album_artist = clickData['points'][0]['text'].split(' - ')[1]
@@ -193,7 +193,7 @@ def main() -> None:
         Input('rec_tree_plot', 'clickData'),
         prevent_initial_call=True
     )
-    def plot_new_recommendation_tree(clickData):
+    def plot_new_recommendation_tree(clickData) -> go.Figure:
         """
         This function plots a new recommendation tree based on the node clicked on the old recommendation tree.
         """

@@ -1,5 +1,5 @@
 import csv
-from typing import Any, Optional
+from typing import Optional
 
 
 class Genre:
@@ -14,7 +14,7 @@ class Genre:
         self.parent_genre = parent_genre
 
 
-def create_genres():
+def create_genres() -> list[Genre]:
     """
     This function creates the full list of genres.
     """
@@ -30,3 +30,4 @@ def create_genres():
                 parent_genre = row[1]
             genre = Genre(name, parent_genre)
             genres.append(genre)
+    return genres

@@ -3,7 +3,7 @@ from igraph import Graph, EdgeSeq
 from genres_data import create_genres
 
 
-def plot_default_genre_tree():
+def plot_default_genre_tree() -> go.Figure:
     """
     This function plots the genre tree with the root being 'Genres', each subgenre is has a parent genre of None.
     """
@@ -62,7 +62,7 @@ def plot_default_genre_tree():
     return fig
 
 
-def plot_genre_tree(root_genre):
+def plot_genre_tree(root_genre) -> go.Figure:
     """
     This function plots the genre tree of the given root genre.
     """
@@ -120,7 +120,7 @@ def plot_genre_tree(root_genre):
     return fig
 
 
-def improve_text_position(Xn):
+def improve_text_position(Xn) -> list[str]:
     """
     Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
     """

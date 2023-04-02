@@ -5,47 +5,31 @@ from genres_data import Genre
 from tree_classes import AlbumTree
 
 
-def plot_genre_recommendation_tree(selected_genre: Genre):
+def plot_genre_recommendation_tree(selected_genre: Genre) -> go.Figure:
     """
-    This function plots the genre tree of the given root genre.
+    This function plots the genre recommendation tree with the root being the selected genre,
+    each subgenre is has a parent
     """
     albums = create_albums()
-    # Create a graph object
     G = Graph(directed=True)
-
-    # Add the root node
     G.add_vertex(selected_genre.name)
-
-    # Add the children of the root node
     top_albums_by_genre = get_albums_by_genre_and_popularity(selected_genre.name, albums)
-
     for i in range(0, 10):
         G.add_vertex(top_albums_by_genre[i].name)
         G.add_edge(selected_genre.name, top_albums_by_genre[i].name)
-
-    # Create a layout for the graph
     lay = G.layout('rt')
-
-    # Create the labels for the vertices
     v_label = G.vs['name']
-
-    # Create a list of positions for the vertices
     position = {k: lay[k] for k in range(len(lay))}
     Y = [lay[k][1] for k in range(len(lay))]
     M = max(Y)
+    es = EdgeSeq(G)
+    E = [e.tuple for e in G.es]
 
-    # Create a list of edges
-    es = EdgeSeq(G)  # sequence of edges
-    E = [e.tuple for e in G.es]  # list of edges
-
-    # Create a list
     L = len(position)
     Xn = [position[k][0] for k in range(L)]
     Yn = [2 * M - position[k][1] for k in range(L)]
     Xe = []
     Ye = []
-
-    # Create a list of edges
     for edge in E:
         Xe += [position[edge[0]][0], position[edge[1]][0], None]
         Ye += [2 * M - position[edge[0]][1], 2 * M - position[edge[1]][1], None]
@@ -80,9 +64,6 @@ def plot_genre_recommendation_tree(selected_genre: Genre):
     return fig
 
 
-# genre_fig = plot_genre_recommendation_tree(genres[436])
-
-
 def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> list[Album]:
     """Given a list of albums sorted from most popular to leat popular and a genre, return a list containing albums with
     the specified genre(Note that albums from albums data are already sorted by popularity)
@@ -96,50 +77,32 @@ def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> 
     return filtered_ablums_list
 
 
-def plot_album_recommendation_tree(selected_album: Album, visited: set[str]):
+def plot_album_recommendation_tree(selected_album: Album, visited: set[str]) -> go.Figure:
     """
     This function plots the genre tree of the given root genre.
     """
-    # Create a graph object
+    albums = create_albums()
     G = Graph(directed=True)
-
-    # Add the root node
     # G.add_vertex(selected_album.name)
-
-    # Add the children of the root node
     album_tree = generate_album_recommendation_tree(selected_album, albums, 3, 2, visited)
     edges = get_all_branches(album_tree)
     vertices = get_all_vertices(album_tree)
-
     for vertex in vertices:
         G.add_vertex(vertex)
-
     for edge in edges:
         G.add_edge(edge[0], edge[1])
-
-    # Create a layout for the graph
     lay = G.layout('rt')
-
-    # Create the labels for the vertices
     v_label = G.vs['name']
-
-    # Create a list of positions for the vertices
     position = {k: lay[k] for k in range(len(lay))}
     Y = [lay[k][1] for k in range(len(lay))]
     M = max(Y)
-
-    # Create a list of edges
-    es = EdgeSeq(G)  # sequence of edges
-    E = [e.tuple for e in G.es]  # list of edges
-
-    # Create a list
+    es = EdgeSeq(G)
+    E = [e.tuple for e in G.es]
     L = len(position)
     Xn = [position[k][0] for k in range(L)]
     Yn = [2 * M - position[k][1] for k in range(L)]
     Xe = []
     Ye = []
-
-    # Create a list of edges
     for edge in E:
         Xe += [position[edge[0]][0], position[edge[1]][0], None]
         Ye += [2 * M - position[edge[0]][1], 2 * M - position[edge[1]][1], None]
@@ -263,7 +226,7 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
         return vertices
 
 
-def improve_text_position(Xn):
+def improve_text_position(Xn) -> list[str]:
     """
     Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
     """

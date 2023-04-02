@@ -14,22 +14,12 @@ class Tree:
         """Returns whether this tree is empty."""
         return self._root is None
 
-    @property
-    def subtrees(self):
-        """Returns the subtrees of this tree."""
-        return self._subtrees
-
-    @property
-    def root(self):
-        """Returns the root of this tree."""
-        return self._root
-
     def add_subtree(self, subtree) -> None:
-        """Add a subtree to this game tree."""
+        """Adds a subtree to this tree."""
         self._subtrees.append(subtree)
 
     def get_subtrees(self) -> list[Any]:
-        """Add a subtree to this game tree."""
+        """Returns the subtrees of this tree"""
         return self._subtrees
 
 
