@@ -1,8 +1,30 @@
 import plotly.graph_objects as go
 from igraph import EdgeSeq, Graph
+
 from albums_data import Album, create_albums
 from genres_data import Genre
 from tree_classes import AlbumTree
+
+
+def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> list[Album]:
+    """Given a list of albums sorted from most popular to leat popular and a genre, return a list containing albums with
+    the specified genre(Note that albums from albums data are already sorted by popularity)
+    """
+    filtered_ablums_list = []
+
+    for album in albums_list:
+        if genre in album.genres:
+            filtered_ablums_list.append(album)
+
+    return filtered_ablums_list
+
+
+def improve_text_position(Xn) -> list[str]:
+    """
+    Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
+    """
+    positions = ['top center', 'bottom center']
+    return ['middle center' if Xn[i] == 0 else positions[i % 2] for i in range(len(Xn))]
 
 
 def plot_genre_recommendation_tree(selected_genre: Genre) -> go.Figure:
@@ -14,9 +36,16 @@ def plot_genre_recommendation_tree(selected_genre: Genre) -> go.Figure:
     G = Graph(directed=True)
     G.add_vertex(selected_genre.name)
     top_albums_by_genre = get_albums_by_genre_and_popularity(selected_genre.name, albums)
-    for i in range(0, 10):
-        G.add_vertex(top_albums_by_genre[i].name)
-        G.add_edge(selected_genre.name, top_albums_by_genre[i].name)
+    if len(top_albums_by_genre) > 10:
+        for i in range(0, 10):
+            album_name_and_artist = top_albums_by_genre[i].name + ' - ' + top_albums_by_genre[i].artist
+            G.add_vertex(album_name_and_artist)
+            G.add_edge(selected_genre.name, album_name_and_artist)
+    else:
+        for album in top_albums_by_genre:
+            album_name_and_artist = album.name + ' - ' + album.artist
+            G.add_vertex(album_name_and_artist)
+            G.add_edge(selected_genre.name, album_name_and_artist)
     lay = G.layout('rt')
     v_label = G.vs['name']
     position = {k: lay[k] for k in range(len(lay))}
@@ -62,19 +91,6 @@ def plot_genre_recommendation_tree(selected_genre: Genre) -> go.Figure:
     fig.update_yaxes(visible=False)
 
     return fig
-
-
-def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> list[Album]:
-    """Given a list of albums sorted from most popular to leat popular and a genre, return a list containing albums with
-    the specified genre(Note that albums from albums data are already sorted by popularity)
-    """
-    filtered_ablums_list = []
-
-    for album in albums_list:
-        if genre in album.genres:
-            filtered_ablums_list.append(album)
-
-    return filtered_ablums_list
 
 
 def plot_album_recommendation_tree(selected_album: Album, visited: set[str]) -> go.Figure:
@@ -141,6 +157,11 @@ def get_albums_by_matches(album: Album, albums_list: list[Album], num_recommenda
                           visited: set[str]) -> list[Album]:
     """Given an album and a list of albums, return a list sorted based on the number of matching descriptors between
     ablum and the ablums in albums_list. The returned list is sorted from most to least number of matches
+
+    Preconditions:
+        - num_recommendations > 0
+        - album is in albums_list
+
     """
 
     sorted_matches_list = []
@@ -172,6 +193,11 @@ def generate_album_recommendation_tree(root_album: Album, albums_list: list[Albu
                                        depth: int, visited: set) -> AlbumTree:
     """Given a root album and a list of albums, create a tree starting at root_album with each subtree having
     num_recommendations number of subtrees. The return tree should be up to the depth specified.
+
+    Preconditions:
+        - depth >= 0
+        - num_recommendations >= 0
+        - root_album is in albums_list
     """
     album_tree = AlbumTree(root_album, [])
 
@@ -224,11 +250,3 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
             vertices.extend(get_all_vertices(subtree))
 
         return vertices
-
-
-def improve_text_position(Xn) -> list[str]:
-    """
-    Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
-    """
-    positions = ['top center', 'bottom center']
-    return ['middle center' if Xn[i] == 0 else positions[i % 2] for i in range(len(Xn))]
