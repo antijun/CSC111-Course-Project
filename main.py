@@ -1,16 +1,14 @@
-"""CSC111 Project Phase 2: Interactive Music Genre and Album Recommendation Tree (Genre Tree)
+"""CSC111 Project Phase 2: Interactive Music Genre and Album Recommendation Tree (Main)
 
 Description
 ===============================
 
-This python module is the main file that runs our app. It contains the web interface created using Dash and calls
-functions from our other modules to compute and then display the different type of tree structure graphs using Plotly.
+This Python module is the main file that runs our app.
 
 Note: even though some function parameters seem unused, they are actually required for the app to run properly.
 
 This file is Copyright (c) 2023 David Wu and Kevin Hu.
 """
-
 # import os
 # from dotenv import load_dotenv
 from dash import Dash, html, dcc, Output, Input, ctx
@@ -297,6 +295,7 @@ if __name__ == '__main__':
                           'plot_recommendation_tree',
                           'dash', 'albums_data', 'genres_data'],
         'allowed-io': ['main'],
+        'disable': ['unused-argument', 'invalid-name']
     })
 
     main()
