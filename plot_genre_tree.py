@@ -1,4 +1,4 @@
-"""CSC111 Project Phase 2: Interactive Music Genre and Album Recommendation Tree (Genre Data)
+"""CSC111 Project Phase 2: Interactive Music Genre and Album Recommendation Tree (Genre Tree)
 
 Description
 ===============================
