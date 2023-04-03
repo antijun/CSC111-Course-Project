@@ -3,8 +3,8 @@
 Note: even though some function parameters seem unused, they are actually required for the app to run properly.
 """
 
-import os
-from dotenv import load_dotenv
+# import os
+# from dotenv import load_dotenv
 from dash import Dash, html, dcc, Output, Input, ctx
 import plotly.graph_objects as go
 import spotipy
@@ -253,10 +253,14 @@ def spotify_auth() -> spotipy.Spotify:
     """
     This function authenticates for the spotify API.
     """
-    load_dotenv()
-    SPOTIPY_CLIENT_ID = load_dotenv('SPOTIPY_CLIENT_ID')
-    SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET')
-    SPOTIPY_REDIRECT_URI = os.getenv('SPOTIPY_REDIRECT_URI')
+    # load_dotenv()
+    # SPOTIPY_CLIENT_ID = load_dotenv('SPOTIPY_CLIENT_ID')
+    # SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET')
+    # SPOTIPY_REDIRECT_URI = os.getenv('SPOTIPY_REDIRECT_URI')
+
+    SPOTIPY_CLIENT_ID = 'cccd08f05aea4eb4b794ba8c4606f057'
+    SPOTIPY_CLIENT_SECRET = '0fa3ff51327c4118b26813dd916570a9'
+    SPOTIPY_REDIRECT_URI = 'http://localhost:8888/callback/'
 
     sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=SPOTIPY_CLIENT_ID,
                                                    client_secret=SPOTIPY_CLIENT_SECRET,
