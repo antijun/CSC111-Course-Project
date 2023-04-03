@@ -19,9 +19,9 @@ class Genre:
     """A class to represent a musical genre.
 
     Instance Attributes:
-        - name: the name of the genre
-        - parent_genre: the name of theparent genre of the genre(if the genre is a subgenre, it will have a parent
-            genre), if genre is instead a main genre with no parnet genre, this attribtue is set to None
+        - name: The name of the genre
+        - parent_genre: The name of theparent genre of the genre(if the genre is a subgenre, it will have a parent
+            genre). If genre is instead a main genre with no parnet genre, this attribtue is set to None
 
     Representation Invariants:
         - self.name != ''
@@ -30,14 +30,14 @@ class Genre:
     parent_genre: Optional[str]
 
     def __init__(self, name: str, parent_genre: Optional[str]) -> None:
-        """Initialize a new genre.
+        """Initialize a new genre with the given name and parent genre.
         """
         self.name = name
         self.parent_genre = parent_genre
 
 
 def create_genres() -> list[Genre]:
-    """This function creates a full list of genres using the data from genres_dataset.csv. Each element in the output 
+    """This function creates a full list of genres using the data from genres_dataset.csv. Each element in the output
     list is a Genre instance.
     """
     genres = []
