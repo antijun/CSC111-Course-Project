@@ -3,7 +3,8 @@
 Description
 ===============================
 
-This Python module contains the Genre class which is used to identify the data found in genres_dataset.csv.
+This Python module contains the Genre class which is used to identify the genres obtained from the data found in 
+genres_dataset.csv.
 
 This file is Copyright (c) 2023 David Wu and Kevin Hu.
 """
