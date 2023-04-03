@@ -16,13 +16,13 @@ class Album:
     """A class to represent a musical album.
 
     Instance Attributes:
-        - name: the name of the album
-        - artist: the artist/creator of the album
-        - genres: a list of the genres associated with the album
-        - rank: a number ranking based on the popularity of the album, measured through the number of review the album,
-            the lower the value of rank, the higher the popularity
-        - release: the date of release of the album in the form 'year-month-day'
-        - descriptors: a list of descriptors/adjectives associated with the album
+        - name: The name of the album
+        - artist: The artist/creator of the album
+        - genres: A list of the genres associated with the album
+        - rank: A number ranking based on the popularity of the album, measured through the number of review the album.
+            The lower the value of rank, the higher the popularity
+        - release: The date of release of the album in the form 'year-month-day'
+        - descriptors: A list of descriptors/adjectives associated with the album
 
     Representation Invariants:
         - self.name != ''
@@ -41,7 +41,7 @@ class Album:
 
     def __init__(self, name: str, artist: str, genres: list[str], rank: int, release: str,
                  descriptors: list[str]) -> None:
-        """Initialize a new album.
+        """Initialize a new album with the given name, artist, genres, rank, release date, and decriptors.
         """
         self.name = name
         self.artist = artist
