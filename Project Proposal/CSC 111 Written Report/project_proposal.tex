@@ -1,23 +1,22 @@
-\documentclass[fontsize=11pt]{article}  
-\usepackage{amsmath}  
-\usepackage[utf8]{inputenc}  
-\usepackage[margin=0.75in]{geometry}  
-\usepackage[final]{graphicx}
-\usepackage{subcaption}
-  
-\title{CSC111 Project Proposal: Interactive Music Genre and Album Recommendation Tree}  
-\author{David Wu, Kevin Hu}  
-\date{Tuesday, March 16, 2021}  
-  
-\begin{document}  
-\maketitle  
-  
-\section*{Problem Description and Project Goal}  
-  
-To many of us, music is a large part of our lives, helping us get through the day. According to the International Federation of the Phonographic Industry (IFPI), the average person spent 18.4 hours a week listening to music in 2021\textsuperscript{1}. With the sheer number of music available on modern streaming platforms such as Spotify or Apple Music, it can be extremely difficult and time-consuming for the casual listener to find new music that they enjoy, especially since listeners themselves may not know what they like. A listener may know that they typically enjoy Rock music but "Rock" is a broad term that encompasses many distinct subgenres, perhaps they are into the raw, distorted sound of Noise Rock or maybe they prefer the more technical, complicated time signatures of Math Rock. This is not to mention that different albums within a subgenre could also be further categorized by different descriptors such as warm, aggressive or depressing. The casual listener is simply unaware of these distinctions when trying to find something they like on the Rock section of Spotify. We believe that good music recommendations should be fast and easy. \textbf{Our goal is to provide users with the best possible song recommendations, given the current preferences of the user in either the form of a preferred genre or a favourite album,} letting users spend less time looking for music and more time listening. This would be done with a visual element in the form of a tree, with the best recommendations located towards the top, and the subsequent branches giving the user options to discover other musical pathways on their own. We would also provide an interactive element for users to further explore their recommendations and how they fit within the larger tree of music genres and albums, allowing users to potentially discover new songs and albums they can enjoy, without having to search through individual songs on music streaming sites.  
-  
+\documentclass[fontsize=11pt]{article}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{graphicx}
 
-  
+\title{CSC111 Project Proposal: Interactive Music Genre and Album Recommendation Tree}
+\author{David Wu, Kevin Hu}
+\date{Tuesday, March 16, 2021}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Description and Project Goal}
+
+To many of us, music is a large part of our lives, helping us get through the day. According to the International Federation of the Phonographic Industry (IFPI), the average person spent 18.4 hours a week listening to music in 2021\textsuperscript{1}. With the sheer number of music available on modern streaming platforms such as Spotify or Apple Music, it can be extremely difficult and time-consuming for the casual listener to find new music that they enjoy, especially since listeners themselves may not know what they like. A listener may know that they typically enjoy Rock music but "Rock" is a broad term that encompasses many distinct subgenres, perhaps they are into the raw, distorted sound of Noise Rock or maybe they prefer the more technical, complicated time signatures of Math Rock. This is not to mention that different albums within a subgenre could also be further categorized by different descriptors such as warm, aggressive or depressing. The casual listener is simply unaware of these distinctions when trying to find something they like on the Rock section of Spotify. We believe that good music recommendations should be fast and easy. \textbf{Our goal is to provide users with the best possible song recommendations, given the current preferences of the user in either the form of a preferred genre or a favourite album,} letting users spend less time looking for music and more time listening. This would be done with a visual element in the form of a tree, with the best recommendations located towards the top, and the subsequent branches giving the user options to discover other musical pathways on their own. We would also provide an interactive element for users to further explore their recommendations and how they fit within the larger tree of music genres and albums, allowing users to potentially discover new songs and albums they can enjoy, without having to search through individual songs on music streaming sites.
+
+
+
 \section*{Datasets Used}
 
 ~~~1. Rate Your Music: The Top 5,000 Most Popular Albums(rym\_clean1.csv)\textsuperscript{2} \newline
@@ -28,22 +27,23 @@ Found on kaggle, this dataset contains 5,000 of the most popular albums found on
 
 Using information from rateyourmusic.com (RYM)\textsuperscript{3}, we generated a data set containing all music genres and subsequent subgenres found on RYM. In the file \texttt{genres\_dataset.csv}, each line contains the information of a music genre, with the attributes in the order \texttt{genre}, \texttt{parent genre}. \texttt{genre} is the name of the genre, while \texttt{parent genre} is the genre under which Genre may be listed. If \texttt{genre} is a main genre with no parent genre, \texttt{parent genre} is given the value \texttt{NA}. All attributes are used for computations in our program, as well as all 1817 lines in the csv while(excluding line 1 with includes the header information). \newline
 
-\section*{Computational Overview} 
-As the main database for our recommendations(\texttt{rym\_clean1.csv}), we will use the top 5,000 most popular albums pulled from the music review site rateyourmusic.com (RYM). As mentioned in the previous section, the main attributes we will be utilizing are \texttt{position}, \texttt{release\_name}, \texttt{artist\_name}, \texttt{primary\_genres}, \texttt{release\_date}, and \texttt{descriptors} to help with recommendation computations and visualizations. To help identify genres and their subgenres, we have created a genres dataset(\texttt{genres\_dataset.csv}), which contains the name of all music genres listed on RYM, and their parent genre if there are any. Our projects will then primarily use trees to represent the genres and albums in our datasets in a hierarchical manner, with three main trees: the genre tree, the genre recommendation tree, and the album recommendation tree. Starting with the genre tree, this tree is separate from the other recommendation tree as it serves as more of an informational role. The starting node of the tree just has the title "Genre", which branches off into the main music genres(i.e. the genres with no parent genre), and then the tree branches off into the subgenres. As for the album recommendation tree, its root will be an album inputted by the user(the album will be from the top 5,000 albums dataset). From there, the tree will branch into the top recommendations, which will be calculated by finding other albums in the dataset with the most matching strings from the descriptors attribute. The tree will then recurse through the top recommendations as if they were the album inputted in by the user, but will also avoid using already recommended albums for further subtrees. The genre recommendation tree is similar to the album recommendation tree, except the root will instead be a genre inputted by the user. The first group of subtrees will then be the most popular albums of the inputted genres. From there, further subtrees will be added using the same recommendation algorithm used in the album recommendation tree. \newline 
+\section*{Computational Overview}
+As the main database for our recommendations(\texttt{rym\_clean1.csv}), we will use the top 5,000 most popular albums pulled from the music review site rateyourmusic.com (RYM). As mentioned in the previous section, the main attributes we will be utilizing are \texttt{position}, \texttt{release\_name}, \texttt{artist\_name}, \texttt{primary\_genres}, \texttt{release\_date}, and \texttt{descriptors} to help with recommendation computations and visualizations. To help identify genres and their subgenres, we have created a genres dataset(\texttt{genres\_dataset.csv}), which contains the name of all music genres listed on RYM, and their parent genre if there are any. Our projects will then primarily use trees to represent the genres and albums in our datasets in a hierarchical manner, with three main trees: the genre tree, the genre recommendation tree, and the album recommendation tree. Starting with the genre tree, this tree is separate from the other recommendation tree as it serves as more of an informational role. The starting node of the tree just has the title "Genre", which branches off into the main music genres(i.e. the genres with no parent genre), and then the tree branches off into the subgenres. As for the album recommendation tree, its root will be an album inputted by the user(the album will be from the top 5,000 albums dataset). From there, the tree will branch into the top recommendations, which will be calculated by finding other albums in the dataset with the most matching strings from the descriptors attribute. The tree will then recurse through the top recommendations as if they were the album inputted in by the user, but will also avoid using already recommended albums for further subtrees. The genre recommendation tree is similar to the album recommendation tree, except the root will instead be a genre inputted by the user. The first group of subtrees will then be the most popular albums of the inputted genres. From there, further subtrees will be added using the same recommendation algorithm used in the album recommendation tree. \newline
 
 To extract data from our datasets, we have created the \texttt{genres\_data} and \texttt{albums\_data} files, which contain the \texttt{Genre} class and \texttt{Album} class respectively. These classes serve to represent each individual genre and album, with the relevant attribute pulled from the top 5,000 most popular albums dataset, and genres dataset. Here is a look at the Album class:
-\begin{verbatim}  
-    class Album:  
-    """  
-    a class to represent an album.  
-    """  
-    name: str  
-    artist: str    
-    genres: list[str]  
-    rank: int  
-    release: str  
-    descriptors: list[str]  
-\end{verbatim}  
+\begin{verbatim}
+    class Album:
+    """
+    a class to represent an album.
+    """
+    name: str
+    artist: str
+    genres: list[str]
+    rank: int
+    release: str
+    descriptors: list[str]
+\end{verbatim}
+
 The instance attributes include the name of the album, the name of the artist, a list of the album's associated genres, its position on the music database RateYourMusic's list of most popular albums, it's the release date and a list of descriptors for the album. Using an import from \texttt{csv}, the \texttt{albums\_data} file will also read the data from the top 5,000 most popular albums dataset, converting each line in the dataset into an \texttt{Album} object, and storing everything from this dataset into a list called \texttt{albums}, which is a list of \texttt{Album} instances. This \texttt{albums} list will later be imported into other classes and files for computations. The \texttt{genre\_data} file is similar to \texttt{albums\_data}, except it only has the instance attributes \texttt{name}(a string), and \texttt{parent\_genre}(which is defined as \texttt{Optional[str]}). \texttt{parent\_genre} is \texttt{None} when the genre is a main genre. Using \texttt{csv} imports again, each line in the genres dataset is read and converted into a \texttt{Genre} instance, which is all saved into a list called \texttt{genres}. \newline
 
 The main tree structures and methods are provided in \texttt{tree\_classes}. Within the \texttt{tree\_classes} file contains the class \texttt{Tree}, with the typical implementation and instance attributes \texttt{\_root}(which is defined as \texttt{Optional[Any]}) and \texttt{\_subtrees}(which is defined as \texttt{list[Any]}). \texttt{Tree} is also implemented with some of the standard methods(i.e. \texttt{is\_empty}). The child class \texttt{Album Tree} is also implemented here, which is initialized the same way as \texttt{Tree}. \newline
@@ -59,13 +59,52 @@ The major computations of our program are done in the \texttt{plot\_recommendati
 
 As for the genre recommendation tree, when the user inputs a genre, the top albums of the inputted genre are outputted, and then the album recommendation tree takes over for further subtrees. Only the root and direct subtrees are needed for the genre recommendation tree, so there is no need to create a separate tree generation function. Instead, given the \texttt{name} attribute of a \texttt{Genre}, the function \texttt{get\_albums\_by\_genre\_and\_popularity} takes in a list of \texttt{Album} instances and filters it, returning a list of \texttt{Album} instances with the same genre name as the inputted \texttt{Genre}. This function was also intended to sort the returned list of \texttt{Album} instances from most to least popular, however, due to the top 5,000 albums dataset already being sorted in order by popularity, the inputted \texttt{albums} list is already sorted, so \texttt{get\_albums\_by\_genre\_and\_popularity} only acts as a filter. \texttt{get\_albums\_by\_genre\_and\_popularity} is then used in \texttt{plot\_genre\_recommendation\_tree} to find recommendations for a given genre. \texttt{plot\_genre\_recommendation\_tree} has the same \texttt{plotly} implementation as \texttt{plot\_album\_recommendation\_tree}, with the edges instead being between the inputted \texttt{Genre} and the outputs from \texttt{get\_albums\_by\_genre\_and\_popularity}. \texttt{plot\_genre\_recommendation\_tree} will then display a tree with at most 10 recommendations for the inputted. \newline
 
-In the file \texttt{plot\_genre\_tree}, this is used to create a visualization for the informational genre tree, but still uses the same \texttt{plotly} implementation as \texttt{plot\_album\_recommendation\_tree} and \texttt{plot\_genre\_recommendation\_tree} for tree plot visualizations. Using the list of genre names \texttt{genres} from \texttt{genres\_data} the \texttt{name} attribute of each \texttt{Genre} in the list is made into a vertex, and an edge from each \texttt{Genre}'s \texttt{name} attribute to its \texttt{parent\_genre} is created. These vertices and edges are used in both plotting functions in \texttt{plot\_genre\_tree}.
+In the file \texttt{plot\_genre\_tree}, this is used to create a visualization for the informational genre tree, but still uses the same \texttt{plotly} implementation as \texttt{plot\_album\_recommendation\_tree} and \texttt{plot\_genre\_recommendation\_tree} for tree plot visualizations. Using the list of genre names \texttt{genres} from \texttt{genres\_data} the \texttt{name} attribute of each \texttt{Genre} in the list is made into a vertex, and an edge from each \texttt{Genre}'s \texttt{name} attribute to its \texttt{parent\_genre} is created. These vertices and edges are used in both plotting functions in \texttt{plot\_genre\_tree}. \newline
+
+All of our tree plots were made using the Reingold-Tilford Layout example from the Plotly Tree-plots (Plotly Tree-plot)\textsuperscript{5}. \newline
+
+In the file \texttt{main}, we create the web interface using Plotly Dash (Dash)\textsuperscript{4}. We also have a function of the same name that calls all the computational and helper functions from all files. One of the helper functions within this file is the \texttt{create\_data} function, this function calls the \texttt{create\_albums} and \texttt{create\_genres} functions imported from the \texttt{albums\_data} and \texttt{genres\_data} files and returns both lists as a tuple. This helper is called at the start of the \texttt{main} function to compute the needed data. Another helper function we made here is the \texttt{spotify\_auth} function, this takes our Spotify API keys and authenticates a Spotify object using the imported library \texttt{spotipy} so that our music playing functionalities can work. We used environment varaibles within a \texttt{.env} files with the imported libraries \texttt{os} and \texttt{dotenv} so that the keys are kept private but for the sake of uploading our asssignment without uploading miscellaneous files like \texttt{.env} we commented out the lines that gets our keys from the \texttt{.env} file and just added the keys to our main file directly. Our last helper function within this file is the \texttt{blank\_fig} function. This function returns a blank plotly figure, this is useful in cases when we want to plot a placeholder graph that we can change depending on input or when we want to clear a generated tree plot by replacing it with a blank one. \newline
+
+In the \texttt{main} function, we created the basic app layout with Dash. The basic layout has different dash objects such as a \texttt{html.Button} or \texttt{dcc.Graph}, each object has a unique id that can be used to identify which objects are triggered and which objects to mutate when certain inputs are given. Two buttons we created here are the 'Get Recommendation' and 'Explore Genre Tree' buttons that change the interface depending on which one is clicked, how this was implemented is in more detail below. Within this function, we have many callback functions that use the \texttt{@app.callback} decorator of the Dash library. These callback functions wait for the input/change of a specified type of data or value of the specified object id and returns the wanted value. An example of one of these callback functions is:
+\begin{verbatim}
+    @app.callback(
+        Output('tree_plot', 'figure', allow_duplicate=True),
+        Input('tree_plot', 'clickData'),
+        prevent_initial_call=True
+    )
+    def plot_new_tree(clickData: dict) -> go.Figure or None:
+        """
+        This function plots a new genre tree based on the node clicked on the old genre tree.
+        """
+        if clickData is not None:
+            if clickData['points'][0]['text'] == 'Genres':
+                return plot_default_genre_tree()
+            else:
+                genre_name = clickData['points'][0]['text']
+                new_root = Genre(genre_name, None)
+                root_genre_stack.append(new_root)
+                new_fig = plot_genre_tree(new_root)
+                return new_fig
+        else:
+            return None
+\end{verbatim}
+For this example, we defined the output to be a plotly figure that changes the 'tree\_plot' object defined in the default dash app layout and the input to be the click data on the existing figure in the same 'tree\_plot' id. This function is used for the interactivity of our \texttt{genre\_tree} to display a new genre tree where the new root genre node is the leaf genre node that the user clicks in the old genre tree. \newline
+
+Another callback function is the \texttt{update\_page} function, this function waits for a press of any of the buttons on the default app layout. This is the function that change the interface based on which of the aforementioned 'Get Recommendation' and 'Explore Genre Tree' buttons are clicked. If the 'Explore Genre Tree' is clicked, a default genre tree is plotted using the \texttt{plot\_default\_genre\_tree} imported from the \texttt{plot\_genre\_tree} file. This default genre tree is displayed on the interface by giving the generated figure to the 'tree\_plot' graph object on the app layout. Whenever a genre is pressed on the genre tree, it will trigger the \texttt{plot\_new\_tree} function from the example above. \newline
+
+We also added a back button that will re-plot the previous genre tree when clicked. This is implemented by first defining a \texttt{root\_genre\_stack} that appends the user clicked genre to the stack. Then whenever the back button is pressed, the function \texttt{plot\_previous\_tree} is triggered. This function pops off the top genre from the stack and call the \texttt{plot\_genre\_tree} function passing in the popped off genre into it, it then returns the new (or technically old) tree to be plotted on the interface. \newline
+
+If the 'Get Recommendation' button was pressed instead of the 'Explore Genre Tree' button, the interface is instead changed to have two \texttt{dcc.Dropdown} dropdown box objects with the ids 'album\_dropdown' and 'genre\_dropdown'. There is also two new button objects with the ids 'submit\_album' and 'submit\_genre'. The dropdowns have the options of all albums and all genres respectively. These dropdowns can be typed in to find the album or genre you're looking for so you dont have to scroll through all the options manually. When an album or genre is selected within one of the dropdowns by the user and they press the matching submit button, either an album recommendation tree or a genre recommendation tree will be plotted. \newline
+
+If an album is submitted, the function \texttt{get\_album\_dropdown\_value} will be called. This function takes the value from the album dropdown and calls the \texttt{plot\_album\_recommendation\_tree} with the selected album as the root album. Then whenever the user clicks on a node on this recommendation tree, a function called \texttt{plot\_new\_recommendation\_tree} is called and plots a new recommendation tree based on the album that was clicked. This function is very similar to the \texttt{plot\_new\_tree} function for genre trees but it generates a recommendation tree instead. The album clicked will also trigger \texttt{SpotifyEmbed} function that searches the Spotify API for the selected album and adds a Spotify album player embed to the interface. This is also updated when new nodes are clicked just like the tree itself. Sometimes the embed will be empty because not all albums on our dataset is available on Spotify. \newline
+
+If a genre is submitted instead, the function \texttt{get\_genre\_dropdown\_value} will be called. This function is similar to \texttt{get\_album\_dropdown\_value} but it gets the value from the genre dropdown and plots a genre recommendation tree by calling \texttt{plot\_genre\_recoommendation\_tree} with the selected genre as the root genre node. Whenever a leaf album node is clicked on this tree, a new album recommendation tree is plotted instead and the tree interactivity will become the same as if you submitted an album for the album recommendation tree.
+
 
 \section*{Instructions for Use}
-
 First, install the libraries listed in the \texttt{requirements.txt} file. The two dataset for our program, \texttt{rym\_clean1.csv} and \texttt{genres\_dataset.csv} can be found on MarkUs, in a zip folder labelled \texttt{datasets}. After downloading the required files from MarkUs as well, run the file \texttt{main.py}. In the console, a link developed through Plotly Dash should appear(after the text 'Dash is running on'). Click the link to open the program.
 
-Once the program is launched, it should look something like this: 
+Once the program is launched, it should look something like this:
 
 \begin{figure}[h]
     \centering
@@ -74,7 +113,7 @@ Once the program is launched, it should look something like this:
     \label{fig:my_label}
 \end{figure}
 
-There are two buttons towards the top left, labelled 'GET RECOMMENDATION' and 'EXPLORE GENRE TREE'. Clicking 'EXPLORE GENRE TREE' will display the genre tree. Clicking on each of the nodes of the subtrees will allow you to further explore down the subgenres of the node clicked. There is also a go-back button on the left to go back to the previous tree before the node was clicked. 
+There are two buttons towards the top left, labelled 'GET RECOMMENDATION' and 'EXPLORE GENRE TREE'. Clicking 'EXPLORE GENRE TREE' will display the genre tree. Clicking on each of the nodes of the subtrees will allow you to further explore down the subgenres of the node clicked. There is also a go-back button on the left to go back to the previous tree before the node was clicked.
 
 \begin{figure}[h]
     \centering
@@ -94,7 +133,7 @@ For the button 'GET RECOMMENDATION', two search bars pop up. The top search bar 
 
 \section*{Changes to Project Plan}
 
-From our original project proposal, overall, we have not changed much. Our original project goal has stayed as same(as outlined in the Problem Description and Project Goal section), and we have created our three genre trees, genre recommendation tree, and album recommendation tree as intended. As cited in our original project proposal, we have also continued on using Plotly tree plots\textsuperscript{5} and Plotly Dash\textsuperscript{4} to create a visualization of our created trees, and an interactable interface for the user. After given some suggestions, we considered using the Tkinter library(notably Tkinter \texttt{treeview} and Tkinter \texttt{pytree}, however after some struggles to create a clean interface to display both the graph and interactable elements, we decided to continue with Plotly. As for the mention of using the Spotify API in our project proposal to give a playback of the recommended album, we decide to use Spotipy to implement this feature. 
+From our original project proposal, overall, we have not changed much. Our original project goal has stayed as same(as outlined in the Problem Description and Project Goal section), and we have created our three genre trees, genre recommendation tree, and album recommendation tree as intended. As cited in our original project proposal, we have also continued on using Plotly tree plots\textsuperscript{5} and Plotly Dash\textsuperscript{4} to create a visualization of our created trees, and an interactable interface for the user. After given some suggestions, we considered using the Tkinter library(notably Tkinter \texttt{treeview} and Tkinter \texttt{pytree}, however after some struggles to create a clean interface to display both the graph and interactable elements, we decided to continue with Plotly. As for the mention of using the Spotify API in our project proposal to give a playback of the recommended album, we decide to use Spotipy to implement this feature.
 
 \section*{Analysis and Interpretation of Results}
 
@@ -106,26 +145,24 @@ For future exploration, updating the recommendation algorithm to use multiple pa
 
 To reiterate our goal, we wanted to provide users with the best possible song recommendations knowing their current preferences for a certain music genre or album. Using implementations with trees, we first provided an informational genre tree was also provided to help guide users through the different music genres, helping them discover any new genres they may like. The recommendation trees were then constructed with the most popular albums or albums with the most matching descriptors located toward the top, and the recursive nature of the tree allowed users to further explore a line of albums they liked. However, due to limitations in the size of our datasets and the linearity of our sorting algorithm, possible album recommendations may not be the best. For better recommendations, adding more data from a variety of sources, as well as incorporating more parameters to the sorting algorithm can help improve recommendations. While this program may not be perfect, we were able to provide quick and relevant song recommendations with an intuitive visualization to help users get a start on their musical journey.
 
-\section*{References}  
-~~~~1. IFPI. (2021). Engaging with Music. https://www.ifpi.org/wp-content/uploads/2021/10/IFPI-Engaging-with-Music-report.pdf \newline  
-  
-2. Bryan O. (2022, March). Rate Your Music: The Top 5,000 Most Popular Albums, Version 1, Retrieved March 8, 2023 from https://www.kaggle.com/datasets/tobennao/rym-top-5000 \newline  
+\section*{References}
+~~~~1. IFPI. (2021). Engaging with Music. https://www.ifpi.org/wp-content/uploads/2021/10/IFPI-Engaging-with-Music-report.pdf \newline
 
-3. Sonemic (n.d.). RateYourMusic All Music Genres. https://rateyourmusic.com/genres/  \newline 
+2. Bryan O. (2022, March). Rate Your Music: The Top 5,000 Most Popular Albums, Version 1, Retrieved March 8, 2023 from https://www.kaggle.com/datasets/tobennao/rym-top-5000 \newline
 
-4. Plotly Dash. (n.d.). Introduction | Dash for Python Documentation. https://dash.plotly.com/introduction \newline  
-  
-5. Plotly (n.d.). Tree Plots in Python. https://plotly.com/python/tree-plots/ \newline  
-‌  
-6‌. Richardson, L. (2007). Beautiful soup documentation. https://www.crummy.com/software/BeautifulSoup/bs4/doc/ \newline  
-  
-7. Reitz, K. (n.d.). Requests: HTTP for Humans™. https://requests.readthedocs.io/en/latest/ \newline  
-  
-8. Spotify (n.d.). Spotify Web API. https://developer.spotify.com/documentation/web-api/reference/\#/ \newline  
-  
-% NOTE: LaTeX does have a built-in way of generating references automatically,  
-% but it's a bit tricky to use so we STRONGLY recommend writing your references  
-% manually, using a standard academic format like APA or MLA.  
-% (E.g., https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/general_format.html)  
-  
-\end{document}  
+3. Sonemic (n.d.). RateYourMusic All Music Genres. https://rateyourmusic.com/genres/  \newline
+
+4. Plotly Dash. (n.d.). Introduction | Dash for Python Documentation. https://dash.plotly.com/introduction \newline
+
+5. Plotly (n.d.). Tree Plots in Python. https://plotly.com/python/tree-plots/ \newline
+‌
+6‌. Richardson, L. (2007). Beautiful soup documentation. https://www.crummy.com/software/BeautifulSoup/bs4/doc/ \newline
+
+7. Spotify (n.d.). Spotify Web API. https://developer.spotify.com/documentation/web-api/reference/\#/ \newline
+
+% NOTE: LaTeX does have a built-in way of generating references automatically,
+% but it's a bit tricky to use so we STRONGLY recommend writing your references
+% manually, using a standard academic format like APA or MLA.
+% (E.g., https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/general_format.html)
+
+\end{document}
