@@ -14,9 +14,9 @@ from genres_data import create_genres, Genre
 
 
 def plot_default_genre_tree() -> go.Figure:
-    """Obtained from the plotly library for tree-plots, this function plots the genre tree with the root being 'Genres',
-    each subgenre is has a parent genre of None. In other words, this function plots the root node of the entire genre
-    tree, as well as its direct subtrees.
+    """Obtained and altered from the plotly library for tree-plots, this function plots the genre tree with the root
+    being 'Genres', each subgenre is has a parent genre of None. In other words, this function plots the root node of
+    the entire genre tree, as well as its direct subtrees.
     """
     genres = create_genres()
     G = Graph(directed=True)
@@ -74,8 +74,8 @@ def plot_default_genre_tree() -> go.Figure:
 
 
 def plot_genre_tree(root_genre: Genre) -> go.Figure:
-    """Obtained from the plotly library for tree-plots, this function plots the genre tree of the given root genre. The
-    root genre is a valid genre in genres_dataset.csv, with its subtrees being subgenres of the root genre.
+    """Obtained and altered from the plotly library for tree-plots, this function plots the genre tree of the given root
+    genre. The root genre is a valid genre in genres_dataset.csv, with its subtrees being subgenres of the root genre.
 
     Preconditions:
             - root_genre.name in [genre.name for genre in create_genres()]
