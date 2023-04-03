@@ -227,7 +227,6 @@ def main() -> None:
         When a leaf node is clicked on the genre recommendation tree, it will plot the album recommendation tree.
         """
         if clickData is not None:
-            print(clickData['points'][0]['text'])
             album_name = clickData['points'][0]['text'].split(' - ')[0]
             album_artist = clickData['points'][0]['text'].split(' - ')[1]
             album = [alb for alb in albums if alb.name == album_name and alb.artist == album_artist][0]
