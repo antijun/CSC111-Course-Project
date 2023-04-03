@@ -3,7 +3,7 @@
 Description
 ===============================
 
-This Python module contains the Genre class which is used to identify the genres obtained from the data found in 
+This Python module contains the Genre class which is used to identify the genres obtained from the data found in
 genres_dataset.csv.
 
 This file is Copyright (c) 2023 David Wu and Kevin Hu.
@@ -30,13 +30,15 @@ class Genre:
     parent_genre: Optional[str]
 
     def __init__(self, name: str, parent_genre: Optional[str]) -> None:
+        """Initialize a new genre.
+        """
         self.name = name
         self.parent_genre = parent_genre
 
 
 def create_genres() -> list[Genre]:
-    """This function creates a full list of genres using the data from genres_dataset.csv. Each element in the element
-    is a Genre instance.
+    """This function creates a full list of genres using the data from genres_dataset.csv. Each element in the output 
+    list is a Genre instance.
     """
     genres = []
     with open('datasets/genres_dataset.csv', 'r', encoding="utf8") as f:
