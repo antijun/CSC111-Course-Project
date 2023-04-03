@@ -1,11 +1,22 @@
+"""CSC111 Project Phase 2: Interactive Music Genre and Album Recommendation Tree (Genre Tree)
+
+Description
+===============================
+
+This Python module contains the functions used to generate a visualization of the genre tree using ploty and igraph. The
+genres are taken from functions in genres_data.py
+
+This file is Copyright (c) 2023 David Wu and Kevin Hu.
+"""
 import plotly.graph_objects as go
 from igraph import Graph, EdgeSeq
-from genres_data import create_genres
+from genres_data import create_genres, Genre
 
 
 def plot_default_genre_tree() -> go.Figure:
-    """
-    This function plots the genre tree with the root being 'Genres', each subgenre is has a parent genre of None.
+    """Obtained and altered from the plotly library for tree-plots, this function plots the genre tree with the root
+    being 'Genres', each subgenre is has a parent genre of None. In other words, this function plots the root node of
+    the entire genre tree, as well as its direct subtrees.
     """
     genres = create_genres()
     G = Graph(directed=True)
@@ -62,9 +73,12 @@ def plot_default_genre_tree() -> go.Figure:
     return fig
 
 
-def plot_genre_tree(root_genre) -> go.Figure:
-    """
-    This function plots the genre tree of the given root genre.
+def plot_genre_tree(root_genre: Genre) -> go.Figure:
+    """Obtained and altered from the plotly library for tree-plots, this function plots the genre tree of the given root
+    genre. The root genre is a valid genre in genres_dataset.csv, with its subtrees being subgenres of the root genre.
+
+    Preconditions:
+            - root_genre.name in [genre.name for genre in create_genres()]
     """
     genres = create_genres()
     G = Graph(directed=True)
@@ -120,9 +134,23 @@ def plot_genre_tree(root_genre) -> go.Figure:
     return fig
 
 
-def improve_text_position(Xn) -> list[str]:
-    """
-    Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
+def improve_text_position(Xn: list) -> list[str]:
+    """This function fixes text overlap issues by alternating between top and bottom text positions (Note: still overlap
+    for some cases).
     """
     positions = ['top center', 'bottom center']
     return ['middle center' if Xn[i] == 0 else positions[i % 2] for i in range(len(Xn))]
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
+    import python_ta
+
+    python_ta.check_all(config={
+        'extra-imports': ['plotly.graph_objects', 'igraph', 'genres_data'],  # the names (strs) of imported modules
+        'allowed-io': [],  # the names (strs) of functions that call print/open/input
+        'disable': ['too-many-locals', 'unnecessary-indexing', 'invalid-name'],
+        'max-line-length': 120
+    })

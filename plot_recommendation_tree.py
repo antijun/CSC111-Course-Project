@@ -1,14 +1,30 @@
+"""CSC111 Project Phase 2: Interactive Music Genre and Album Recommendation Tree (Genre and Album Recommendation Trees)
+
+Description
+===============================
+
+This Python module contains the functions used to generate a visualization of the genre and album recommendations trees
+using ploty and igraph. The albums are taken from functions in albums_data.py. For the genre recommendation tree, this
+file contains a filtering helper function(filters by genre name). For the album recommendation tree, this file contains
+the helper functions to recursively generate the tree structure and the recommendation algorithm to decide which
+subtrees are added to the tree.
+
+This file is Copyright (c) 2023 David Wu and Kevin Hu.
+"""
 import plotly.graph_objects as go
 from igraph import EdgeSeq, Graph
 
 from albums_data import Album, create_albums
-from genres_data import Genre
+from genres_data import Genre, create_genres
 from tree_classes import AlbumTree
 
 
 def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> list[Album]:
     """Given a list of albums sorted from most popular to leat popular and a genre, return a list containing albums with
     the specified genre(Note that albums from albums data are already sorted by popularity)
+
+    Preconditions:
+        - genre != ''
     """
     filtered_ablums_list = []
 
@@ -19,18 +35,21 @@ def get_albums_by_genre_and_popularity(genre: str, albums_list: list[Album]) -> 
     return filtered_ablums_list
 
 
-def improve_text_position(Xn) -> list[str]:
-    """
-    Fixes text overlap issues by alternating between top and bottom text positions (still overlap for some cases).
+def improve_text_position(Xn: list) -> list[str]:
+    """Fixes text overlap issues by alternating between top and bottom text positions (Note: still overlap for some
+    cases).
     """
     positions = ['top center', 'bottom center']
     return ['middle center' if Xn[i] == 0 else positions[i % 2] for i in range(len(Xn))]
 
 
 def plot_genre_recommendation_tree(selected_genre: Genre) -> go.Figure:
-    """
-    This function plots the genre recommendation tree with the root being the selected genre,
-    each subgenre is has a parent
+    """Obtained and altered from the plotly library for tree-plots, this function plots the genre recommendation tree
+    with the root being the selected genre, and each subtree containg albums of the genre, obtained from
+    get_albums_by_genre_and_popularity
+
+    Preconditions:
+        - selected_genre.name in [genre.name for genre in create_genres()]
     """
     albums = create_albums()
     G = Graph(directed=True)
@@ -94,8 +113,13 @@ def plot_genre_recommendation_tree(selected_genre: Genre) -> go.Figure:
 
 
 def plot_album_recommendation_tree(selected_album: Album, visited: set[str]) -> go.Figure:
-    """
-    This function plots the genre tree of the given root genre.
+    """Obtained and altered from the plotly library for tree-plots, this function plots the album recommendation tree
+    with the root being the selected album, and each subtree containg albums with matching descriptors to the selected
+    album(Note: in some cases there are no matching descriptors). Vertices and edges are obtained after generating the
+    tree structure using generate_album_recommendation_tree, and helper functions get_all_vertices and get_all_branches.
+
+    Preconditions:
+        - selected_album.name in [album.name for album in create_albums()]
     """
     albums = create_albums()
     G = Graph(directed=True)
@@ -153,15 +177,16 @@ def plot_album_recommendation_tree(selected_album: Album, visited: set[str]) -> 
     return fig
 
 
-def get_albums_by_matches(album: Album, albums_list: list[Album], num_recommendations,
+def get_albums_by_matches(album: Album, albums_list: list[Album], num_recommendations: int,
                           visited: set[str]) -> list[Album]:
-    """Given an album and a list of albums, return a list sorted based on the number of matching descriptors between
-    ablum and the ablums in albums_list. The returned list is sorted from most to least number of matches
+    """This function performs the main recommendation algorithm. Given an album and a list of albums, return a list
+    sorted based on the number of matching descriptors between ablum and each ablum in albums_list. The returned list is
+    sorted from most to least number of matches. The returned list has length of at most num_recommnedtations, and
+    should not contain any album names matching the valuses in visited.
 
     Preconditions:
         - num_recommendations > 0
-        - album is in albums_list
-
+        - album.name in [album.name for album in create_albums()]
     """
 
     sorted_matches_list = []
@@ -179,9 +204,9 @@ def get_albums_by_matches(album: Album, albums_list: list[Album], num_recommenda
                 max_matches = num_matches
 
     for i in range(max_matches, -1, -1):
-        for album in album_to_matches:
-            if album_to_matches[album][1] == i:
-                sorted_matches_list.append(album_to_matches[album][0])
+        for album_name in album_to_matches:
+            if album_to_matches[album_name][1] == i:
+                sorted_matches_list.append(album_to_matches[album_name][0])
 
             if len(sorted_matches_list) == num_recommendations:
                 return sorted_matches_list
@@ -191,13 +216,15 @@ def get_albums_by_matches(album: Album, albums_list: list[Album], num_recommenda
 
 def generate_album_recommendation_tree(root_album: Album, albums_list: list[Album], num_recommendations: int,
                                        depth: int, visited: set) -> AlbumTree:
-    """Given a root album and a list of albums, create a tree starting at root_album with each subtree having
-    num_recommendations number of subtrees. The return tree should be up to the depth specified.
+    """This function recursively generates the album recommendation tree. Given a root album and a list of albums,
+    create a tree starting at root_album with each subtree having at most num_recommendations number of subtrees.
+    Subtrees are determined using the function get_albums_by_matches. The returned tree should be up to the depth
+    specified.
 
     Preconditions:
         - depth >= 0
         - num_recommendations >= 0
-        - root_album is in albums_list
+        - root_album.name in [album.name for album in create_albums()]
     """
     album_tree = AlbumTree(root_album, [])
 
@@ -217,7 +244,8 @@ def generate_album_recommendation_tree(root_album: Album, albums_list: list[Albu
 
 
 def get_all_branches(album_tree: AlbumTree) -> list[tuple[str, str]]:
-    """Given an album tree, return a list of all the branches in the tree
+    """Given an album tree, return a list of all the branches in the tree. Each branch is represented as a tuple of two
+    strings, with each string representing the name of a vertex in album_tree
     """
     edges = []
     if album_tree.is_empty() or album_tree.get_subtrees() == []:
@@ -234,7 +262,8 @@ def get_all_branches(album_tree: AlbumTree) -> list[tuple[str, str]]:
 
 
 def get_all_vertices(album_tree: AlbumTree) -> list[str]:
-    """Given an album tree, return a list of all the branches in the tree
+    """Given an album tree, return a list of all the vertices in the tree. Each vertex is represented as a string, with
+    the output being a list of strings
     """
     vertices = []
     if album_tree.is_empty():
@@ -250,3 +279,17 @@ def get_all_vertices(album_tree: AlbumTree) -> list[str]:
             vertices.extend(get_all_vertices(subtree))
 
         return vertices
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod(verbose=True)
+
+    import python_ta
+
+    python_ta.check_all(config={
+        'extra-imports': ['plotly.graph_objects', 'igraph', 'albums_data', 'genres_data', 'tree_classes'],
+        'allowed-io': [],  # the names (strs) of functions that call print/open/input
+        'disable': ['too-many-locals', 'unnecessary-indexing', 'invalid-name', 'unused-import'],
+        'max-line-length': 120
+    })
