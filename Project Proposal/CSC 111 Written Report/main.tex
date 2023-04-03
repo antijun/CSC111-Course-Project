@@ -63,13 +63,27 @@ In the file \texttt{plot\_genre\_tree}, this is used to create a visualization f
 
 \section*{Instructions for Use}
 
-\section*{Changes to Project Plan}
+First, install the libraries listed in the \texttt{requirements.txt} file. The two dataset for our program, \texttt{rym\_clean1.csv} and \texttt{genres\_dataset.csv} can be found on MarkUs, in a zip folder labelled \texttt{datasets}. After downloading the required files from MarkUs as well, run the file \texttt{main.py}. In the console, a link developed through Plotly Dash should appear(after the text 'Dash is running on'). Click the link to open the program.
 
-From our original project proposal, overall, we have not changed much. Our original project goal has stayed as same(as outlined in the Problem Description and Project Goal section), and we have created our three genre trees, genre recommendation tree, and album recommendation tree as intended. As cited in our original project proposal, we have also continued on using Plotly tree plots\textsuperscript{5} and Plotly Dash\textsuperscript{4} to create a visualization of our created trees, and an interactable interface for the user. After given some suggestions, we considered using the Tkinter library(notably Tkinter \texttt{treeview} and Tkinter \texttt{pytree}, however after some struggles to create a clean interface to display both the graph and interactable elements, we decided to continue with Plotly. As for the mention of using the Spotify API in our project proposal to give a playback of the recommended album, we decide to use Spotipy to implement this feature. 
+Once the program is launched, it should look something like this: 
 
-\section*{Analysis and Interpretation of Results}
+\begin{figure}[h]
+    \centering
+    \includegraphics[height=7cm, width=18cm]{examplelaunch.png}
+    \caption{Initail display upon opening the program}
+    \label{fig:my_label}
+\end{figure}
 
-Here is the final product: \newline
+There are two buttons towards the top left, labelled 'GET RECOMMENDATION' and 'EXPLORE GENRE TREE'. Clicking 'EXPLORE GENRE TREE' will display the genre tree. Clicking on each of the nodes of the subtrees will allow you to further explore down the subgenres of the node clicked. There is also a go-back button on the left to go back to the previous tree before the node was clicked. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[height=7cm, width=18cm]{examplegenretree.png}
+    \caption{Display when exploring genre tree}
+    \label{fig:my_label}
+\end{figure}
+
+For the button 'GET RECOMMENDATION', two search bars pop up. The top search bar is used when inputting a preferred album(album recommendation tree). If an album is inputted into the top search bar, click the 'SUBMIT ALBUM' button below to generate a recommendation tree base on the inputted album. Similar to the genre tree, the nodes of this tree(which are albums) can be clicked to further explore the recommendations from the clicked-on album. The bottom search bar is used for inputting genres for the genre recommendation tree. If a genre is inputted into the bottom search bar, click the 'SUBMIT GENRE' button to generate a genre recommendation tree for the respective input. The nodes of this tree(albums) can also be clicked through to further explore each musical pathway.
 
 \begin{figure}[h]
     \centering
@@ -77,6 +91,12 @@ Here is the final product: \newline
     \caption{Display when using the recommendation trees}
     \label{fig:my_label}
 \end{figure}
+
+\section*{Changes to Project Plan}
+
+From our original project proposal, overall, we have not changed much. Our original project goal has stayed as same(as outlined in the Problem Description and Project Goal section), and we have created our three genre trees, genre recommendation tree, and album recommendation tree as intended. As cited in our original project proposal, we have also continued on using Plotly tree plots\textsuperscript{5} and Plotly Dash\textsuperscript{4} to create a visualization of our created trees, and an interactable interface for the user. After given some suggestions, we considered using the Tkinter library(notably Tkinter \texttt{treeview} and Tkinter \texttt{pytree}, however after some struggles to create a clean interface to display both the graph and interactable elements, we decided to continue with Plotly. As for the mention of using the Spotify API in our project proposal to give a playback of the recommended album, we decide to use Spotipy to implement this feature. 
+
+\section*{Analysis and Interpretation of Results}
 
 Overall, we have achieved our goal of providing a convenient way to get song recommendations given a preferred genre or album. Through a couple of clicks, users can easily see the recommendations for their input in a hierarchical manner, with better recommendations intuitively found at the top near the input. Users can also explore new songs and genres by simply clicking on a recommendation they like. Due to the use of trees and their recursive implementation, users can potentially explore a continuous branch of subtrees with albums they enjoy. If they like a certain recommendation, they can go further down into the subtrees of that recommendation. We believe our use of album descriptors in our recommendation algorithm also is better than simply using genres, which is why the main feature of our program is the album recommendation tree. While people often have a preferred genre, only recommending albums of a specific genre may be too limiting, and doesn't allow the user to potentially explore new albums and genres they may actually like. From our vision developed during our project proposal, we are satisfied with the result \newline
 
