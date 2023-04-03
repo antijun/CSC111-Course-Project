@@ -27,10 +27,7 @@ def main() -> None:
     """
     This function is the main block of code that runs our app
     """
-    external_stylesheets = [
-        'https://raw.githubusercontent.com/antijun/CSC111-Course-Project/main/assets/stylesheet.css']
-
-    app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True)
+    app = Dash(__name__, suppress_callback_exceptions=True)
 
     root_genre_stack, visited = [], set()
     albums, genres = create_data()
@@ -42,12 +39,12 @@ def main() -> None:
                 style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
         html.Div(children='''This is a web application that can recommend music based on a user's input.''',
                  style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
-        html.Button('Get Recommendation', id='rec_button', style={'textAlign': 'center'}),
-        html.Button('Explore Genre Tree', id='genre_tree_button', style={'textAlign': 'center'}),
+        html.Button('Get Recommendation', id='rec_button', style={'textAlign': 'center', 'height': '38px'}),
+        html.Button('Explore Genre Tree', id='genre_tree_button', style={'textAlign': 'center', 'height': '38px'}),
         html.Div(id='rec_output'),
         dcc.Graph(id='tree_plot', figure=blank_fig()),
-
-    ])
+        dcc.Graph(id='placeholder', figure=blank_fig())
+    ], style={'backgroundColor': '#383838'})
 
     @app.callback(
         Output('rec_output', 'children'),
@@ -85,8 +82,8 @@ def main() -> None:
                     placeholder='Select a genre...'
                 ),
                 html.Div(id='album_output'),
-                html.Button('Submit Album', id='album_submit', style={'textAlign': 'center'}),
-                html.Button('Submit Genre', id='genre_submit', style={'textAlign': 'center'}),
+                html.Button('Submit Album', id='album_submit', style={'textAlign': 'center', 'height': '38px'}),
+                html.Button('Submit Genre', id='genre_submit', style={'textAlign': 'center', 'height': '38px'}),
                 html.Div(id='spotify_output', style={'textAlign': 'center'}),
                 dcc.Graph(id='rec_tree_plot', figure=blank_fig()),
             ]), blank_fig())
@@ -101,7 +98,7 @@ def main() -> None:
                     style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
                 html.H3("You can freely explore the tree and view a genre's subgenres by clicking on it's node",
                         style={'textAlign': 'center', 'backgroundColor': '#383838', 'color': 'hotpink'}),
-                html.Button('Go Back', id='back_button', style={'textAlign': 'center'}),
+                html.Button('Go Back', id='back_button', style={'textAlign': 'center', 'height': '38px'}),
             ]), plot_default_genre_tree())
 
         else:
